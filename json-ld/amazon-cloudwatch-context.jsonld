@@ -1,0 +1,107 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "cw": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Metric": {
+      "@id": "cw:Metric",
+      "@context": {
+        "namespace": "cw:namespace",
+        "metricName": "schema:name",
+        "dimensions": {
+          "@id": "cw:dimensions",
+          "@container": "@set"
+        },
+        "statistic": "cw:statistic",
+        "unit": "cw:unit",
+        "value": "schema:value",
+        "timestamp": {
+          "@id": "dcterms:date",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "Alarm": {
+      "@id": "cw:Alarm",
+      "@context": {
+        "alarmName": "schema:name",
+        "alarmArn": "cw:alarmArn",
+        "alarmDescription": "schema:description",
+        "stateValue": "cw:stateValue",
+        "stateReason": "cw:stateReason",
+        "stateUpdatedTimestamp": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        },
+        "metricName": "cw:metricName",
+        "namespace": "cw:namespace",
+        "statistic": "cw:statistic",
+        "period": "cw:period",
+        "evaluationPeriods": "cw:evaluationPeriods",
+        "threshold": "cw:threshold",
+        "comparisonOperator": "cw:comparisonOperator",
+        "treatMissingData": "cw:treatMissingData",
+        "actionsEnabled": "cw:actionsEnabled",
+        "alarmActions": {
+          "@id": "cw:alarmActions",
+          "@container": "@set"
+        },
+        "okActions": {
+          "@id": "cw:okActions",
+          "@container": "@set"
+        },
+        "insufficientDataActions": {
+          "@id": "cw:insufficientDataActions",
+          "@container": "@set"
+        },
+        "dimensions": {
+          "@id": "cw:dimensions",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "Dashboard": {
+      "@id": "cw:Dashboard",
+      "@context": {
+        "dashboardName": "schema:name",
+        "dashboardArn": "cw:dashboardArn",
+        "dashboardBody": "cw:dashboardBody",
+        "lastModified": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        },
+        "size": "cw:size"
+      }
+    },
+
+    "Dimension": {
+      "@id": "cw:Dimension",
+      "@context": {
+        "name": "schema:name",
+        "value": "schema:value"
+      }
+    },
+
+    "MetricDataResult": {
+      "@id": "cw:MetricDataResult",
+      "@context": {
+        "id": "cw:queryId",
+        "label": "schema:name",
+        "timestamps": {
+          "@id": "cw:timestamps",
+          "@container": "@list"
+        },
+        "values": {
+          "@id": "cw:values",
+          "@container": "@list"
+        },
+        "statusCode": "cw:statusCode"
+      }
+    }
+  }
+}

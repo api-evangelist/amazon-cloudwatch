@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/amazon/cloudwatch/alarm.json",
+  "title": "Amazon CloudWatch Alarm",
+  "description": "Represents an Amazon CloudWatch metric alarm with its associated configuration, state, and notification actions.",
+  "type": "object",
+  "required": ["alarmName", "comparisonOperator", "evaluationPeriods"],
+  "properties": {
+    "alarmName": {
+      "type": "string",
+      "description": "The name of the alarm",
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "alarmArn": {
+      "type": "string",
+      "description": "The Amazon Resource Name (ARN) of the alarm",
+      "pattern": "^arn:aws:cloudwatch:[a-z0-9-]+:[0-9]{12}:alarm:.+$"
+    },
+    "alarmDescription": {
+      "type": "string",
+      "description": "The description for the alarm",
+      "maxLength": 1024
+    },
+    "alarmConfigurationUpdatedTimestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time stamp of the last update to the alarm configuration"
+    },
+    "actionsEnabled": {
+      "type": "boolean",
+      "description": "Indicates whether actions should be executed during any changes to the alarm state"
+    },
+    "alarmActions": {
+      "type": "array",
+      "description": "The actions to execute when this alarm transitions to the ALARM state",
+      "items": {
+        "type": "string",
+        "description": "The ARN of an action (SNS topic, Auto Scaling policy, etc.)"
+      },
+      "maxItems": 5
+    },
+    "okActions": {
+      "type": "array",
+      "description": "The actions to execute when this alarm transitions to the OK state",
+      "items": {
+        "type": "string",
+        "description": "The ARN of an action"
+      },
+      "maxItems": 5
+    },
+    "insufficientDataActions": {
+      "type": "array",
+      "description": "The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state",
+      "items": {
+        "type": "string",
+        "description": "The ARN of an action"
+      },
+      "maxItems": 5
+    },
+    "stateValue": {
+      "type": "string",
+      "description": "The state value for the alarm",
+      "enum": ["OK", "ALARM", "INSUFFICIENT_DATA"]
+    },
+    "stateReason": {
+      "type": "string",
+      "description": "An explanation for the alarm state in human-readable text format",
+      "maxLength": 1023
+    },
+    "stateReasonData": {
+      "type": "string",
+      "description": "An explanation for the alarm state in JSON format"
+    },
+    "stateUpdatedTimestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time stamp of the last update to the alarm state"
+    },
+    "metricName": {
+      "type": "string",
+      "description": "The name of the metric associated with the alarm",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "namespace": {
+      "type": "string",
+      "description": "The namespace of the metric associated with the alarm",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "statistic": {
+      "type": "string",
+      "description": "The statistic for the metric specified in MetricName",
+      "enum": ["SampleCount", "Average", "Sum", "Minimum", "Maximum"]
+    },
+    "extendedStatistic": {
+      "type": "string",
+      "description": "The percentile statistic for the metric specified in MetricName",
+      "pattern": "^p(\\d{1,2}(\\.\\d{0,2})?|100)$"
+    },
+    "dimensions": {
+      "type": "array",
+      "description": "The dimensions for the metric specified in MetricName",
+      "items": {
+        "$ref": "#/$defs/Dimension"
+      },
+      "maxItems": 30
+    },
+    "period": {
+      "type": "integer",
+      "description": "The length in seconds of the evaluation period for the alarm",
+      "minimum": 10
+    },
+    "evaluationPeriods": {
+      "type": "integer",
+      "description": "The number of periods over which data is compared to the specified threshold",
+      "minimum": 1
+    },
+    "datapointsToAlarm": {
+      "type": "integer",
+      "description": "The number of data points that must be breaching to trigger the alarm",
+      "minimum": 1
+    },
+    "threshold": {
+      "type": "number",
+      "description": "The value against which the specified statistic is compared"
+    },
+    "comparisonOperator": {
+      "type": "string",
+      "description": "The arithmetic operation to use when comparing the specified statistic and threshold",
+      "enum": [
+        "GreaterThanOrEqualToThreshold",
+        "GreaterThanThreshold",
+        "LessThanThreshold",
+        "LessThanOrEqualToThreshold",
+        "LessThanLowerOrGreaterThanUpperThreshold",
+        "LessThanLowerThreshold",
+        "GreaterThanUpperThreshold"
+      ]
+    },
+    "treatMissingData": {
+      "type": "string",
+      "description": "Sets how this alarm is to handle missing data points",
+      "enum": ["breaching", "notBreaching", "ignore", "missing"]
+    },
+    "unit": {
+      "type": "string",
+      "description": "The unit of measure for the statistic",
+      "enum": [
+        "Seconds",
+        "Microseconds",
+        "Milliseconds",
+        "Bytes",
+        "Kilobytes",
+        "Megabytes",
+        "Gigabytes",
+        "Terabytes",
+        "Bits",
+        "Kilobits",
+        "Megabits",
+        "Gigabits",
+        "Terabits",
+        "Percent",
+        "Count",
+        "Bytes/Second",
+        "Kilobytes/Second",
+        "Megabytes/Second",
+        "Gigabytes/Second",
+        "Terabytes/Second",
+        "Bits/Second",
+        "Kilobits/Second",
+        "Megabits/Second",
+        "Gigabits/Second",
+        "Terabits/Second",
+        "Count/Second",
+        "None"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "description": "Tags associated with the alarm",
+      "items": {
+        "$ref": "#/$defs/Tag"
+      }
+    }
+  },
+  "$defs": {
+    "Dimension": {
+      "type": "object",
+      "description": "A dimension is a name/value pair that is part of the identity of a metric",
+      "required": ["name", "value"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the dimension",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "value": {
+          "type": "string",
+          "description": "The value of the dimension",
+          "minLength": 1,
+          "maxLength": 1024
+        }
+      }
+    },
+    "Tag": {
+      "type": "object",
+      "description": "A key-value pair associated with the alarm",
+      "required": ["key"],
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "The key of the tag",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "value": {
+          "type": "string",
+          "description": "The value of the tag",
+          "maxLength": 256
+        }
+      }
+    }
+  }
+}

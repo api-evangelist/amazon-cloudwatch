@@ -1,0 +1,918 @@
+openapi: 3.1.0
+info:
+  title: Amazon CloudWatch API
+  description: >-
+    Amazon CloudWatch monitors your Amazon Web Services resources and the
+    applications you run on AWS in real time. You can use CloudWatch to collect
+    and track metrics, create alarms that send notifications, and automatically
+    react to changes in your AWS resources. CloudWatch provides a reliable,
+    scalable, and flexible monitoring solution for your cloud infrastructure.
+  version: '2010-08-01'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/contact-us/
+  termsOfService: https://aws.amazon.com/service-terms/
+externalDocs:
+  description: Amazon CloudWatch API Reference
+  url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/
+servers:
+  - url: https://monitoring.{region}.amazonaws.com
+    description: Amazon CloudWatch Regional Endpoint
+    variables:
+      region:
+        default: us-east-1
+        description: AWS Region
+tags:
+  - name: Metrics
+    description: Operations for publishing, retrieving, and listing CloudWatch metrics
+  - name: Alarms
+    description: Operations for creating, describing, and deleting metric alarms
+  - name: Dashboards
+    description: Operations for creating, retrieving, and listing CloudWatch dashboards
+security:
+  - sigv4Auth: []
+paths:
+  /?Action=PutMetricData:
+    get:
+      operationId: putMetricData
+      summary: Publish metric data points
+      description: >-
+        Publishes metric data points to Amazon CloudWatch. CloudWatch
+        associates the data points with the specified metric. If the specified
+        metric does not exist, CloudWatch creates the metric. When CloudWatch
+        creates a metric, it can take up to fifteen minutes for the metric to
+        appear in calls to ListMetrics.
+      tags:
+        - Metrics
+      parameters:
+        - name: Namespace
+          in: query
+          required: true
+          description: The namespace for the metric data
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 256
+        - name: MetricData.member.1.MetricName
+          in: query
+          required: true
+          description: The name of the metric
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 256
+        - name: MetricData.member.1.Value
+          in: query
+          description: The value for the metric
+          schema:
+            type: number
+        - name: MetricData.member.1.Timestamp
+          in: query
+          description: The time the metric data was received
+          schema:
+            type: string
+            format: date-time
+        - name: MetricData.member.1.Unit
+          in: query
+          description: The unit of the metric
+          schema:
+            type: string
+            enum:
+              - Seconds
+              - Microseconds
+              - Milliseconds
+              - Bytes
+              - Kilobytes
+              - Megabytes
+              - Gigabytes
+              - Terabytes
+              - Bits
+              - Kilobits
+              - Megabits
+              - Gigabits
+              - Terabits
+              - Percent
+              - Count
+              - Bytes/Second
+              - Kilobytes/Second
+              - Megabytes/Second
+              - Gigabytes/Second
+              - Terabytes/Second
+              - Bits/Second
+              - Kilobits/Second
+              - Megabits/Second
+              - Gigabits/Second
+              - Terabits/Second
+              - Count/Second
+              - None
+        - name: MetricData.member.1.Dimensions.member.1.Name
+          in: query
+          description: The name of the dimension
+          schema:
+            type: string
+        - name: MetricData.member.1.Dimensions.member.1.Value
+          in: query
+          description: The value of the dimension
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully published metric data
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+        '403':
+          description: Authorization failure
+  /?Action=GetMetricData:
+    get:
+      operationId: getMetricData
+      summary: Retrieve metric data
+      description: >-
+        Retrieves CloudWatch metric values. You can use GetMetricData to
+        retrieve as many as 500 different metrics in a single request, with a
+        total of as many as 100,800 data points.
+      tags:
+        - Metrics
+      parameters:
+        - name: StartTime
+          in: query
+          required: true
+          description: The start of the time range to retrieve metric data
+          schema:
+            type: string
+            format: date-time
+        - name: EndTime
+          in: query
+          required: true
+          description: The end of the time range to retrieve metric data
+          schema:
+            type: string
+            format: date-time
+        - name: MetricDataQueries.member.1.Id
+          in: query
+          required: true
+          description: A short name to identify the query
+          schema:
+            type: string
+        - name: MetricDataQueries.member.1.MetricStat.Metric.Namespace
+          in: query
+          description: The namespace of the metric
+          schema:
+            type: string
+        - name: MetricDataQueries.member.1.MetricStat.Metric.MetricName
+          in: query
+          description: The name of the metric
+          schema:
+            type: string
+        - name: MetricDataQueries.member.1.MetricStat.Period
+          in: query
+          description: The granularity in seconds of the returned data points
+          schema:
+            type: integer
+            minimum: 1
+        - name: MetricDataQueries.member.1.MetricStat.Stat
+          in: query
+          description: The statistic to return (e.g., Average, Sum, Maximum)
+          schema:
+            type: string
+        - name: MaxDatapoints
+          in: query
+          description: The maximum number of data points to return
+          schema:
+            type: integer
+        - name: NextToken
+          in: query
+          description: Token for the next page of results
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved metric data
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetMetricDataResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=GetMetricStatistics:
+    get:
+      operationId: getMetricStatistics
+      summary: Get statistics for a metric
+      description: >-
+        Gets statistics for the specified metric. The maximum number of data
+        points returned from a single call is 1,440. CloudWatch retains metric
+        data as follows: data points with a period of less than 60 seconds
+        are available for 3 hours, 60-second data points for 15 days,
+        5-minute data points for 63 days, and 1-hour data points for 455 days.
+      tags:
+        - Metrics
+      parameters:
+        - name: Namespace
+          in: query
+          required: true
+          description: The namespace of the metric
+          schema:
+            type: string
+        - name: MetricName
+          in: query
+          required: true
+          description: The name of the metric
+          schema:
+            type: string
+        - name: StartTime
+          in: query
+          required: true
+          description: The start of the time range for the data points
+          schema:
+            type: string
+            format: date-time
+        - name: EndTime
+          in: query
+          required: true
+          description: The end of the time range for the data points
+          schema:
+            type: string
+            format: date-time
+        - name: Period
+          in: query
+          required: true
+          description: The granularity in seconds of the returned data points
+          schema:
+            type: integer
+            minimum: 1
+        - name: Statistics.member.1
+          in: query
+          description: The metric statistic to return
+          schema:
+            type: string
+            enum:
+              - SampleCount
+              - Average
+              - Sum
+              - Minimum
+              - Maximum
+        - name: Dimensions.member.1.Name
+          in: query
+          description: The name of the dimension
+          schema:
+            type: string
+        - name: Dimensions.member.1.Value
+          in: query
+          description: The value of the dimension
+          schema:
+            type: string
+        - name: Unit
+          in: query
+          description: The unit for the metric
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved metric statistics
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetMetricStatisticsResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=ListMetrics:
+    get:
+      operationId: listMetrics
+      summary: List available metrics
+      description: >-
+        List the specified metrics. You can use the returned metrics with
+        GetMetricData or GetMetricStatistics to get statistical data.
+        Up to 500 results are returned for any one call.
+      tags:
+        - Metrics
+      parameters:
+        - name: Namespace
+          in: query
+          description: Filter by namespace
+          schema:
+            type: string
+        - name: MetricName
+          in: query
+          description: Filter by metric name
+          schema:
+            type: string
+        - name: Dimensions.member.1.Name
+          in: query
+          description: The name of the dimension to filter by
+          schema:
+            type: string
+        - name: Dimensions.member.1.Value
+          in: query
+          description: The value of the dimension to filter by
+          schema:
+            type: string
+        - name: NextToken
+          in: query
+          description: Token for the next page of results
+          schema:
+            type: string
+        - name: RecentlyActive
+          in: query
+          description: Filter to metrics that have had data points published in the past three hours
+          schema:
+            type: string
+            enum:
+              - PT3H
+      responses:
+        '200':
+          description: Successfully listed metrics
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ListMetricsResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=PutMetricAlarm:
+    get:
+      operationId: putMetricAlarm
+      summary: Create or update a metric alarm
+      description: >-
+        Creates or updates an alarm and associates it with the specified
+        metric, metric math expression, anomaly detection model, or Metrics
+        Insights query. When the alarm state changes, the action specified
+        is performed.
+      tags:
+        - Alarms
+      parameters:
+        - name: AlarmName
+          in: query
+          required: true
+          description: The name for the alarm
+          schema:
+            type: string
+            minLength: 1
+            maxLength: 255
+        - name: AlarmDescription
+          in: query
+          description: A description for the alarm
+          schema:
+            type: string
+            maxLength: 1024
+        - name: Namespace
+          in: query
+          description: The namespace for the metric associated with the alarm
+          schema:
+            type: string
+        - name: MetricName
+          in: query
+          description: The name for the metric associated with the alarm
+          schema:
+            type: string
+        - name: Statistic
+          in: query
+          description: The statistic for the metric associated with the alarm
+          schema:
+            type: string
+            enum:
+              - SampleCount
+              - Average
+              - Sum
+              - Minimum
+              - Maximum
+        - name: Period
+          in: query
+          description: The length in seconds of the evaluation period
+          schema:
+            type: integer
+            minimum: 10
+        - name: EvaluationPeriods
+          in: query
+          required: true
+          description: The number of periods over which data is compared to the threshold
+          schema:
+            type: integer
+            minimum: 1
+        - name: Threshold
+          in: query
+          description: The value to compare with the specified statistic
+          schema:
+            type: number
+        - name: ComparisonOperator
+          in: query
+          required: true
+          description: The arithmetic operation to use when comparing the statistic and threshold
+          schema:
+            type: string
+            enum:
+              - GreaterThanOrEqualToThreshold
+              - GreaterThanThreshold
+              - LessThanThreshold
+              - LessThanOrEqualToThreshold
+              - LessThanLowerOrGreaterThanUpperThreshold
+              - LessThanLowerThreshold
+              - GreaterThanUpperThreshold
+        - name: ActionsEnabled
+          in: query
+          description: Whether actions should be executed during alarm state changes
+          schema:
+            type: boolean
+        - name: AlarmActions.member.1
+          in: query
+          description: The ARN of the action to execute when the alarm transitions to ALARM state
+          schema:
+            type: string
+        - name: OKActions.member.1
+          in: query
+          description: The ARN of the action to execute when the alarm transitions to OK state
+          schema:
+            type: string
+        - name: InsufficientDataActions.member.1
+          in: query
+          description: The ARN of the action to execute when the alarm transitions to INSUFFICIENT_DATA state
+          schema:
+            type: string
+        - name: Dimensions.member.1.Name
+          in: query
+          description: The name of the dimension
+          schema:
+            type: string
+        - name: Dimensions.member.1.Value
+          in: query
+          description: The value of the dimension
+          schema:
+            type: string
+        - name: TreatMissingData
+          in: query
+          description: How to treat missing data when evaluating the alarm
+          schema:
+            type: string
+            enum:
+              - breaching
+              - notBreaching
+              - ignore
+              - missing
+      responses:
+        '200':
+          description: Successfully created or updated alarm
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+        '403':
+          description: Authorization failure
+  /?Action=DescribeAlarms:
+    get:
+      operationId: describeAlarms
+      summary: Describe metric alarms
+      description: >-
+        Retrieves the specified alarms. You can filter the results by
+        specifying a prefix for the alarm name, the alarm state, or a
+        prefix for any action.
+      tags:
+        - Alarms
+      parameters:
+        - name: AlarmNames.member.1
+          in: query
+          description: The name of the alarm to retrieve
+          schema:
+            type: string
+        - name: AlarmNamePrefix
+          in: query
+          description: An alarm name prefix to filter by
+          schema:
+            type: string
+        - name: StateValue
+          in: query
+          description: Filter by alarm state
+          schema:
+            type: string
+            enum:
+              - OK
+              - ALARM
+              - INSUFFICIENT_DATA
+        - name: ActionPrefix
+          in: query
+          description: An action name prefix to filter by
+          schema:
+            type: string
+        - name: MaxRecords
+          in: query
+          description: The maximum number of alarm descriptions to retrieve
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+        - name: NextToken
+          in: query
+          description: Token for the next page of results
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully described alarms
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeAlarmsResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=DeleteAlarms:
+    get:
+      operationId: deleteAlarms
+      summary: Delete metric alarms
+      description: >-
+        Deletes the specified alarms. You can delete up to 100 alarms in
+        one operation. In the event of an error, no alarms are deleted.
+      tags:
+        - Alarms
+      parameters:
+        - name: AlarmNames.member.1
+          in: query
+          required: true
+          description: The name of the alarm to delete
+          schema:
+            type: string
+        - name: AlarmNames.member.2
+          in: query
+          description: Additional alarm name to delete
+          schema:
+            type: string
+        - name: AlarmNames.member.3
+          in: query
+          description: Additional alarm name to delete
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully deleted alarms
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=PutDashboard:
+    get:
+      operationId: putDashboard
+      summary: Create or update a dashboard
+      description: >-
+        Creates a dashboard if it does not already exist, or updates an
+        existing dashboard. If you update a dashboard, the entire contents
+        are replaced with what you specify here. There is no limit to the
+        number of dashboards in your account.
+      tags:
+        - Dashboards
+      parameters:
+        - name: DashboardName
+          in: query
+          required: true
+          description: The name of the dashboard
+          schema:
+            type: string
+        - name: DashboardBody
+          in: query
+          required: true
+          description: >-
+            The detailed information about the dashboard in JSON format,
+            including the widgets to include and their location on the
+            dashboard
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully created or updated dashboard
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PutDashboardResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=GetDashboard:
+    get:
+      operationId: getDashboard
+      summary: Get a dashboard
+      description: >-
+        Displays the details of the dashboard that you specify. To copy an
+        existing dashboard, use GetDashboard, and then use the data
+        returned within DashboardBody as the template for the new dashboard.
+      tags:
+        - Dashboards
+      parameters:
+        - name: DashboardName
+          in: query
+          required: true
+          description: The name of the dashboard to retrieve
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully retrieved dashboard
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetDashboardResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=ListDashboards:
+    get:
+      operationId: listDashboards
+      summary: List dashboards
+      description: >-
+        Returns a list of the dashboards for your account. If you include
+        DashboardNamePrefix, only those dashboards with names starting with
+        the prefix are listed. Otherwise, all dashboards in your account
+        are listed.
+      tags:
+        - Dashboards
+      parameters:
+        - name: DashboardNamePrefix
+          in: query
+          description: Filter dashboards by name prefix
+          schema:
+            type: string
+        - name: NextToken
+          in: query
+          description: Token for the next page of results
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successfully listed dashboards
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ListDashboardsResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+components:
+  securitySchemes:
+    sigv4Auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication
+  schemas:
+    GetMetricDataResponse:
+      type: object
+      description: Response from the GetMetricData action
+      properties:
+        metricDataResults:
+          type: array
+          description: The metrics that are returned
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: The short name specified in the query
+              label:
+                type: string
+                description: The human-readable label for the metric
+              timestamps:
+                type: array
+                description: The timestamps for the data points
+                items:
+                  type: string
+                  format: date-time
+              values:
+                type: array
+                description: The data point values
+                items:
+                  type: number
+              statusCode:
+                type: string
+                description: The status of the returned data
+                enum:
+                  - Complete
+                  - InternalError
+                  - PartialData
+                  - Forbidden
+        nextToken:
+          type: string
+          description: Token for the next page of results
+    GetMetricStatisticsResponse:
+      type: object
+      description: Response from the GetMetricStatistics action
+      properties:
+        label:
+          type: string
+          description: A label for the specified metric
+        datapoints:
+          type: array
+          description: The data points for the specified metric
+          items:
+            type: object
+            properties:
+              timestamp:
+                type: string
+                format: date-time
+                description: The time stamp for the data point
+              sampleCount:
+                type: number
+                description: The number of metric values
+              average:
+                type: number
+                description: The average of the metric values
+              sum:
+                type: number
+                description: The sum of the metric values
+              minimum:
+                type: number
+                description: The minimum metric value
+              maximum:
+                type: number
+                description: The maximum metric value
+              unit:
+                type: string
+                description: The standard unit for the data point
+    ListMetricsResponse:
+      type: object
+      description: Response from the ListMetrics action
+      properties:
+        metrics:
+          type: array
+          description: The metrics that match the filter criteria
+          items:
+            $ref: '#/components/schemas/Metric'
+        nextToken:
+          type: string
+          description: Token for the next page of results
+    DescribeAlarmsResponse:
+      type: object
+      description: Response from the DescribeAlarms action
+      properties:
+        metricAlarms:
+          type: array
+          description: The information about the alarms
+          items:
+            $ref: '#/components/schemas/Alarm'
+        nextToken:
+          type: string
+          description: Token for the next page of results
+    PutDashboardResponse:
+      type: object
+      description: Response from the PutDashboard action
+      properties:
+        dashboardValidationMessages:
+          type: array
+          description: Validation messages from the dashboard body
+          items:
+            type: object
+            properties:
+              dataPath:
+                type: string
+                description: The data path related to the message
+              message:
+                type: string
+                description: A message describing the error or warning
+    GetDashboardResponse:
+      type: object
+      description: Response from the GetDashboard action
+      properties:
+        dashboardArn:
+          type: string
+          description: The ARN of the dashboard
+        dashboardBody:
+          type: string
+          description: The detailed information about the dashboard in JSON format
+        dashboardName:
+          type: string
+          description: The name of the dashboard
+    ListDashboardsResponse:
+      type: object
+      description: Response from the ListDashboards action
+      properties:
+        dashboardEntries:
+          type: array
+          description: The list of matching dashboards
+          items:
+            $ref: '#/components/schemas/Dashboard'
+        nextToken:
+          type: string
+          description: Token for the next page of results
+    Metric:
+      type: object
+      description: Represents a specific metric
+      properties:
+        namespace:
+          type: string
+          description: The namespace of the metric
+        metricName:
+          type: string
+          description: The name of the metric
+        dimensions:
+          type: array
+          description: The dimensions for the metric
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: The name of the dimension
+              value:
+                type: string
+                description: The value of the dimension
+    Alarm:
+      type: object
+      description: Represents a CloudWatch metric alarm
+      properties:
+        alarmName:
+          type: string
+          description: The name of the alarm
+        alarmArn:
+          type: string
+          description: The ARN of the alarm
+        alarmDescription:
+          type: string
+          description: The description of the alarm
+        stateValue:
+          type: string
+          description: The state value for the alarm
+          enum:
+            - OK
+            - ALARM
+            - INSUFFICIENT_DATA
+        stateReason:
+          type: string
+          description: An explanation for the alarm state
+        stateUpdatedTimestamp:
+          type: string
+          format: date-time
+          description: The time stamp of the last update to the state
+        metricName:
+          type: string
+          description: The name of the metric associated with the alarm
+        namespace:
+          type: string
+          description: The namespace of the metric associated with the alarm
+        statistic:
+          type: string
+          description: The statistic for the metric associated with the alarm
+        dimensions:
+          type: array
+          description: The dimensions for the metric associated with the alarm
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+        period:
+          type: integer
+          description: The period in seconds over which the statistic is applied
+        evaluationPeriods:
+          type: integer
+          description: The number of periods over which data is compared to the threshold
+        threshold:
+          type: number
+          description: The value to compare with the specified statistic
+        comparisonOperator:
+          type: string
+          description: The arithmetic operation to use when comparing the statistic and threshold
+        treatMissingData:
+          type: string
+          description: How missing data points are treated
+        actionsEnabled:
+          type: boolean
+          description: Whether actions are executed during alarm state changes
+        alarmActions:
+          type: array
+          description: The actions to execute when the alarm transitions to ALARM state
+          items:
+            type: string
+        okActions:
+          type: array
+          description: The actions to execute when the alarm transitions to OK state
+          items:
+            type: string
+        insufficientDataActions:
+          type: array
+          description: The actions to execute when the alarm transitions to INSUFFICIENT_DATA state
+          items:
+            type: string
+    Dashboard:
+      type: object
+      description: Represents a CloudWatch dashboard
+      properties:
+        dashboardName:
+          type: string
+          description: The name of the dashboard
+        dashboardArn:
+          type: string
+          description: The ARN of the dashboard
+        lastModified:
+          type: string
+          format: date-time
+          description: The time stamp of when the dashboard was last modified
+        size:
+          type: integer
+          description: The size of the dashboard in bytes
