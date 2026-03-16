@@ -1,9 +1,16 @@
+aid: amazon-cloudwatch
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/amazon-cloudwatch/refs/heads/main/apis.yml
 name: Amazon CloudWatch API
-description: Amazon CloudWatch is a monitoring and observability service that provides data and actionable insights to monitor applications, respond to system-wide performance changes, and optimize resource utilization, offering a unified view of operational health across AWS resources, applications, and services.
-image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
-url: https://aws.amazon.com/cloudwatch/
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+specificationVersion: '0.19'
+description: >-
+  Amazon CloudWatch is a monitoring and observability service that provides
+  data and actionable insights to monitor applications, respond to
+  system-wide performance changes, and optimize resource utilization.
 created: '2024-01-15'
-modified: '2026-03-13'
+modified: '2026-03-16'
 apis:
 - name: Amazon CloudWatch API
   description: >-
