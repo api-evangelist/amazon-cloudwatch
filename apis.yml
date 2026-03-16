@@ -1,7 +1,7 @@
 aid: amazon-cloudwatch
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-cloudwatch/refs/heads/main/apis.yml
-name: Amazon CloudWatch API
+name: Amazon CloudWatch
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 specificationVersion: '0.19'
