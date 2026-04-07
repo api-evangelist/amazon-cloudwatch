@@ -23,12 +23,12 @@ servers:
         default: us-east-1
         description: AWS Region
 tags:
-  - name: Metrics
-    description: Operations for publishing, retrieving, and listing CloudWatch metrics
   - name: Alarms
     description: Operations for creating, describing, and deleting metric alarms
   - name: Dashboards
     description: Operations for creating, retrieving, and listing CloudWatch dashboards
+  - name: Metrics
+    description: Operations for publishing, retrieving, and listing CloudWatch metrics
 security:
   - sigv4Auth: []
 paths:
