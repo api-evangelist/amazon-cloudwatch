@@ -35,7 +35,7 @@ paths:
   /?Action=PutMetricData:
     get:
       operationId: putMetricData
-      summary: Publish metric data points
+      summary: Amazon CloudWatch Publish metric data points
       description: >-
         Publishes metric data points to Amazon CloudWatch. CloudWatch
         associates the data points with the specified metric. If the specified
@@ -127,7 +127,7 @@ paths:
   /?Action=GetMetricData:
     get:
       operationId: getMetricData
-      summary: Retrieve metric data
+      summary: Amazon CloudWatch Retrieve metric data
       description: >-
         Retrieves CloudWatch metric values. You can use GetMetricData to
         retrieve as many as 500 different metrics in a single request, with a
@@ -200,7 +200,7 @@ paths:
   /?Action=GetMetricStatistics:
     get:
       operationId: getMetricStatistics
-      summary: Get statistics for a metric
+      summary: Amazon CloudWatch Get statistics for a metric
       description: >-
         Gets statistics for the specified metric. The maximum number of data
         points returned from a single call is 1,440. CloudWatch retains metric
@@ -283,7 +283,7 @@ paths:
   /?Action=ListMetrics:
     get:
       operationId: listMetrics
-      summary: List available metrics
+      summary: Amazon CloudWatch List available metrics
       description: >-
         List the specified metrics. You can use the returned metrics with
         GetMetricData or GetMetricStatistics to get statistical data.
@@ -337,7 +337,7 @@ paths:
   /?Action=PutMetricAlarm:
     get:
       operationId: putMetricAlarm
-      summary: Create or update a metric alarm
+      summary: Amazon CloudWatch Create or update a metric alarm
       description: >-
         Creates or updates an alarm and associates it with the specified
         metric, metric math expression, anomaly detection model, or Metrics
@@ -465,7 +465,7 @@ paths:
   /?Action=DescribeAlarms:
     get:
       operationId: describeAlarms
-      summary: Describe metric alarms
+      summary: Amazon CloudWatch Describe metric alarms
       description: >-
         Retrieves the specified alarms. You can filter the results by
         specifying a prefix for the alarm name, the alarm state, or a
@@ -523,7 +523,7 @@ paths:
   /?Action=DeleteAlarms:
     get:
       operationId: deleteAlarms
-      summary: Delete metric alarms
+      summary: Amazon CloudWatch Delete metric alarms
       description: >-
         Deletes the specified alarms. You can delete up to 100 alarms in
         one operation. In the event of an error, no alarms are deleted.
@@ -556,7 +556,7 @@ paths:
   /?Action=PutDashboard:
     get:
       operationId: putDashboard
-      summary: Create or update a dashboard
+      summary: Amazon CloudWatch Create or update a dashboard
       description: >-
         Creates a dashboard if it does not already exist, or updates an
         existing dashboard. If you update a dashboard, the entire contents
@@ -594,7 +594,7 @@ paths:
   /?Action=GetDashboard:
     get:
       operationId: getDashboard
-      summary: Get a dashboard
+      summary: Amazon CloudWatch Get a dashboard
       description: >-
         Displays the details of the dashboard that you specify. To copy an
         existing dashboard, use GetDashboard, and then use the data
@@ -622,7 +622,7 @@ paths:
   /?Action=ListDashboards:
     get:
       operationId: listDashboards
-      summary: List dashboards
+      summary: Amazon CloudWatch List dashboards
       description: >-
         Returns a list of the dashboards for your account. If you include
         DashboardNamePrefix, only those dashboards with names starting with
