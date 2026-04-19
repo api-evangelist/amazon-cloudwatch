@@ -1,0 +1,10 @@
+{
+  "namespace": "example-resource",
+  "metricName": "example-resource",
+  "dimensions": [
+    {
+      "name": "example-resource",
+      "value": "example-value"
+    }
+  ]
+}

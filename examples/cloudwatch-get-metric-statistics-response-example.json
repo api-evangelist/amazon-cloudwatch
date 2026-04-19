@@ -1,0 +1,14 @@
+{
+  "label": "example-value",
+  "datapoints": [
+    {
+      "timestamp": "2025-03-15T14:30:00Z",
+      "sampleCount": 42.5,
+      "average": 42.5,
+      "sum": 42.5,
+      "minimum": 42.5,
+      "maximum": 42.5,
+      "unit": "example-value"
+    }
+  ]
+}

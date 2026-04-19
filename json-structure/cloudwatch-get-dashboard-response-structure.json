@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudwatch/refs/heads/main/json-structure/cloudwatch-get-dashboard-response-structure.json",
+  "name": "GetDashboardResponse",
+  "description": "Response from the GetDashboard action",
+  "type": "object",
+  "properties": {
+    "dashboardArn": {
+      "type": "string",
+      "description": "The ARN of the dashboard"
+    },
+    "dashboardBody": {
+      "type": "string",
+      "description": "The detailed information about the dashboard in JSON format"
+    },
+    "dashboardName": {
+      "type": "string",
+      "description": "The name of the dashboard"
+    }
+  }
+}

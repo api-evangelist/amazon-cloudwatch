@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudwatch/refs/heads/main/json-schema/cloudwatch-put-dashboard-response-schema.json",
+  "title": "PutDashboardResponse",
+  "description": "Response from the PutDashboard action",
+  "type": "object",
+  "properties": {
+    "dashboardValidationMessages": {
+      "type": "array",
+      "description": "Validation messages from the dashboard body",
+      "items": {
+        "type": "object",
+        "properties": {
+          "dataPath": {
+            "type": "string",
+            "description": "The data path related to the message"
+          },
+          "message": {
+            "type": "string",
+            "description": "A message describing the error or warning"
+          }
+        }
+      }
+    }
+  }
+}

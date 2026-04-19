@@ -1,0 +1,8 @@
+{
+  "dashboardValidationMessages": [
+    {
+      "dataPath": "example-value",
+      "message": "example-value"
+    }
+  ]
+}

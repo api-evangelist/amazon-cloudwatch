@@ -1,0 +1,6 @@
+{
+  "metricAlarms": [
+    "example-value"
+  ],
+  "nextToken": "example-value"
+}

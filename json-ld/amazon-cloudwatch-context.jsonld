@@ -1,107 +1,157 @@
 {
   "@context": {
     "@version": 1.1,
-    "cw": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/",
+    "cloudwatch": "https://aws.amazon.com/cloudwatch/schema/",
     "schema": "https://schema.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "dcterms": "http://purl.org/dc/terms/",
-
-    "Metric": {
-      "@id": "cw:Metric",
-      "@context": {
-        "namespace": "cw:namespace",
-        "metricName": "schema:name",
-        "dimensions": {
-          "@id": "cw:dimensions",
-          "@container": "@set"
-        },
-        "statistic": "cw:statistic",
-        "unit": "cw:unit",
-        "value": "schema:value",
-        "timestamp": {
-          "@id": "dcterms:date",
-          "@type": "xsd:dateTime"
-        }
-      }
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "GetMetricDataResponse": "cloudwatch:GetMetricDataResponse",
+    "metricDataResults": {
+      "@id": "cloudwatch:metric_data_results",
+      "@container": "@set",
+      "@type": "xsd:string"
     },
-
-    "Alarm": {
-      "@id": "cw:Alarm",
-      "@context": {
-        "alarmName": "schema:name",
-        "alarmArn": "cw:alarmArn",
-        "alarmDescription": "schema:description",
-        "stateValue": "cw:stateValue",
-        "stateReason": "cw:stateReason",
-        "stateUpdatedTimestamp": {
-          "@id": "dcterms:modified",
-          "@type": "xsd:dateTime"
-        },
-        "metricName": "cw:metricName",
-        "namespace": "cw:namespace",
-        "statistic": "cw:statistic",
-        "period": "cw:period",
-        "evaluationPeriods": "cw:evaluationPeriods",
-        "threshold": "cw:threshold",
-        "comparisonOperator": "cw:comparisonOperator",
-        "treatMissingData": "cw:treatMissingData",
-        "actionsEnabled": "cw:actionsEnabled",
-        "alarmActions": {
-          "@id": "cw:alarmActions",
-          "@container": "@set"
-        },
-        "okActions": {
-          "@id": "cw:okActions",
-          "@container": "@set"
-        },
-        "insufficientDataActions": {
-          "@id": "cw:insufficientDataActions",
-          "@container": "@set"
-        },
-        "dimensions": {
-          "@id": "cw:dimensions",
-          "@container": "@set"
-        }
-      }
+    "nextToken": {
+      "@id": "cloudwatch:next_token",
+      "@type": "xsd:string"
     },
-
-    "Dashboard": {
-      "@id": "cw:Dashboard",
-      "@context": {
-        "dashboardName": "schema:name",
-        "dashboardArn": "cw:dashboardArn",
-        "dashboardBody": "cw:dashboardBody",
-        "lastModified": {
-          "@id": "dcterms:modified",
-          "@type": "xsd:dateTime"
-        },
-        "size": "cw:size"
-      }
+    "GetMetricStatisticsResponse": "cloudwatch:GetMetricStatisticsResponse",
+    "label": {
+      "@id": "cloudwatch:label",
+      "@type": "xsd:string"
     },
-
-    "Dimension": {
-      "@id": "cw:Dimension",
-      "@context": {
-        "name": "schema:name",
-        "value": "schema:value"
-      }
+    "datapoints": {
+      "@id": "cloudwatch:datapoints",
+      "@container": "@set",
+      "@type": "xsd:string"
     },
-
-    "MetricDataResult": {
-      "@id": "cw:MetricDataResult",
-      "@context": {
-        "id": "cw:queryId",
-        "label": "schema:name",
-        "timestamps": {
-          "@id": "cw:timestamps",
-          "@container": "@list"
-        },
-        "values": {
-          "@id": "cw:values",
-          "@container": "@list"
-        },
-        "statusCode": "cw:statusCode"
-      }
+    "ListMetricsResponse": "cloudwatch:ListMetricsResponse",
+    "metrics": {
+      "@id": "cloudwatch:metrics",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "DescribeAlarmsResponse": "cloudwatch:DescribeAlarmsResponse",
+    "metricAlarms": {
+      "@id": "cloudwatch:metric_alarms",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "PutDashboardResponse": "cloudwatch:PutDashboardResponse",
+    "dashboardValidationMessages": {
+      "@id": "cloudwatch:dashboard_validation_messages",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "GetDashboardResponse": "cloudwatch:GetDashboardResponse",
+    "dashboardArn": {
+      "@id": "cloudwatch:dashboard_arn",
+      "@type": "xsd:string"
+    },
+    "dashboardBody": {
+      "@id": "cloudwatch:dashboard_body",
+      "@type": "xsd:string"
+    },
+    "dashboardName": {
+      "@id": "cloudwatch:dashboard_name",
+      "@type": "xsd:string"
+    },
+    "ListDashboardsResponse": "cloudwatch:ListDashboardsResponse",
+    "dashboardEntries": {
+      "@id": "cloudwatch:dashboard_entries",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "Metric": "cloudwatch:Metric",
+    "namespace": {
+      "@id": "cloudwatch:namespace",
+      "@type": "xsd:string"
+    },
+    "metricName": {
+      "@id": "cloudwatch:metric_name",
+      "@type": "xsd:string"
+    },
+    "dimensions": {
+      "@id": "cloudwatch:dimensions",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "Alarm": "cloudwatch:Alarm",
+    "alarmName": {
+      "@id": "cloudwatch:alarm_name",
+      "@type": "xsd:string"
+    },
+    "alarmArn": {
+      "@id": "cloudwatch:alarm_arn",
+      "@type": "xsd:string"
+    },
+    "alarmDescription": {
+      "@id": "cloudwatch:alarm_description",
+      "@type": "xsd:string"
+    },
+    "stateValue": {
+      "@id": "cloudwatch:state_value",
+      "@type": "xsd:string"
+    },
+    "stateReason": {
+      "@id": "cloudwatch:state_reason",
+      "@type": "xsd:string"
+    },
+    "stateUpdatedTimestamp": {
+      "@id": "cloudwatch:state_updated_timestamp",
+      "@type": "xsd:dateTime"
+    },
+    "statistic": {
+      "@id": "cloudwatch:statistic",
+      "@type": "xsd:string"
+    },
+    "period": {
+      "@id": "cloudwatch:period",
+      "@type": "xsd:integer"
+    },
+    "evaluationPeriods": {
+      "@id": "cloudwatch:evaluation_periods",
+      "@type": "xsd:integer"
+    },
+    "threshold": {
+      "@id": "cloudwatch:threshold",
+      "@type": "xsd:decimal"
+    },
+    "comparisonOperator": {
+      "@id": "cloudwatch:comparison_operator",
+      "@type": "xsd:string"
+    },
+    "treatMissingData": {
+      "@id": "cloudwatch:treat_missing_data",
+      "@type": "xsd:string"
+    },
+    "actionsEnabled": {
+      "@id": "cloudwatch:actions_enabled",
+      "@type": "xsd:boolean"
+    },
+    "alarmActions": {
+      "@id": "cloudwatch:alarm_actions",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "okActions": {
+      "@id": "cloudwatch:ok_actions",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "insufficientDataActions": {
+      "@id": "cloudwatch:insufficient_data_actions",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "Dashboard": "cloudwatch:Dashboard",
+    "lastModified": {
+      "@id": "cloudwatch:last_modified",
+      "@type": "xsd:dateTime"
+    },
+    "size": {
+      "@id": "cloudwatch:size",
+      "@type": "xsd:integer"
     }
   }
 }

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudwatch/refs/heads/main/json-schema/cloudwatch-list-dashboards-response-schema.json",
+  "title": "ListDashboardsResponse",
+  "description": "Response from the ListDashboards action",
+  "type": "object",
+  "properties": {
+    "dashboardEntries": {
+      "type": "array",
+      "description": "The list of matching dashboards",
+      "items": {
+        "$ref": "#/components/schemas/Dashboard"
+      }
+    },
+    "nextToken": {
+      "type": "string",
+      "description": "Token for the next page of results"
+    }
+  }
+}

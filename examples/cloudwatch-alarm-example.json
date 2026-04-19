@@ -1,0 +1,32 @@
+{
+  "alarmName": "example-resource",
+  "alarmArn": "arn:aws:::example/abc12345",
+  "alarmDescription": "example-value",
+  "stateValue": "OK",
+  "stateReason": "example-value",
+  "stateUpdatedTimestamp": "2025-03-15T14:30:00Z",
+  "metricName": "example-resource",
+  "namespace": "example-resource",
+  "statistic": "example-value",
+  "dimensions": [
+    {
+      "name": "example-resource",
+      "value": "example-value"
+    }
+  ],
+  "period": 100,
+  "evaluationPeriods": 100,
+  "threshold": 42.5,
+  "comparisonOperator": "example-value",
+  "treatMissingData": "example-value",
+  "actionsEnabled": true,
+  "alarmActions": [
+    "example-value"
+  ],
+  "okActions": [
+    "example-value"
+  ],
+  "insufficientDataActions": [
+    "example-value"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudwatch/refs/heads/main/json-structure/cloudwatch-get-metric-data-response-structure.json",
+  "name": "GetMetricDataResponse",
+  "description": "Response from the GetMetricData action",
+  "type": "object",
+  "properties": {
+    "metricDataResults": {
+      "type": "array",
+      "description": "The metrics that are returned",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The short name specified in the query"
+          },
+          "label": {
+            "type": "string",
+            "description": "The human-readable label for the metric"
+          },
+          "timestamps": {
+            "type": "array",
+            "description": "The timestamps for the data points",
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "values": {
+            "type": "array",
+            "description": "The data point values",
+            "items": {
+              "type": "number"
+            }
+          },
+          "statusCode": {
+            "type": "string",
+            "description": "The status of the returned data",
+            "enum": [
+              "Complete",
+              "InternalError",
+              "PartialData",
+              "Forbidden"
+            ]
+          }
+        }
+      }
+    },
+    "nextToken": {
+      "type": "string",
+      "description": "Token for the next page of results"
+    }
+  }
+}

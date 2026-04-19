@@ -1,0 +1,5 @@
+{
+  "dashboardArn": "arn:aws:::example/abc12345",
+  "dashboardBody": "example-value",
+  "dashboardName": "example-resource"
+}

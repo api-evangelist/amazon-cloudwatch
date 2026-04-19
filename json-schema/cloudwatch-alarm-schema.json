@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudwatch/refs/heads/main/json-schema/cloudwatch-alarm-schema.json",
+  "title": "Alarm",
+  "description": "Represents a CloudWatch metric alarm",
+  "type": "object",
+  "properties": {
+    "alarmName": {
+      "type": "string",
+      "description": "The name of the alarm"
+    },
+    "alarmArn": {
+      "type": "string",
+      "description": "The ARN of the alarm"
+    },
+    "alarmDescription": {
+      "type": "string",
+      "description": "The description of the alarm"
+    },
+    "stateValue": {
+      "type": "string",
+      "description": "The state value for the alarm",
+      "enum": [
+        "OK",
+        "ALARM",
+        "INSUFFICIENT_DATA"
+      ]
+    },
+    "stateReason": {
+      "type": "string",
+      "description": "An explanation for the alarm state"
+    },
+    "stateUpdatedTimestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time stamp of the last update to the state"
+    },
+    "metricName": {
+      "type": "string",
+      "description": "The name of the metric associated with the alarm"
+    },
+    "namespace": {
+      "type": "string",
+      "description": "The namespace of the metric associated with the alarm"
+    },
+    "statistic": {
+      "type": "string",
+      "description": "The statistic for the metric associated with the alarm"
+    },
+    "dimensions": {
+      "type": "array",
+      "description": "The dimensions for the metric associated with the alarm",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "period": {
+      "type": "integer",
+      "description": "The period in seconds over which the statistic is applied"
+    },
+    "evaluationPeriods": {
+      "type": "integer",
+      "description": "The number of periods over which data is compared to the threshold"
+    },
+    "threshold": {
+      "type": "number",
+      "description": "The value to compare with the specified statistic"
+    },
+    "comparisonOperator": {
+      "type": "string",
+      "description": "The arithmetic operation to use when comparing the statistic and threshold"
+    },
+    "treatMissingData": {
+      "type": "string",
+      "description": "How missing data points are treated"
+    },
+    "actionsEnabled": {
+      "type": "boolean",
+      "description": "Whether actions are executed during alarm state changes"
+    },
+    "alarmActions": {
+      "type": "array",
+      "description": "The actions to execute when the alarm transitions to ALARM state",
+      "items": {
+        "type": "string"
+      }
+    },
+    "okActions": {
+      "type": "array",
+      "description": "The actions to execute when the alarm transitions to OK state",
+      "items": {
+        "type": "string"
+      }
+    },
+    "insufficientDataActions": {
+      "type": "array",
+      "description": "The actions to execute when the alarm transitions to INSUFFICIENT_DATA state",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

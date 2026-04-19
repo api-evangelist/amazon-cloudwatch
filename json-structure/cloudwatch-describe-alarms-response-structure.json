@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudwatch/refs/heads/main/json-structure/cloudwatch-describe-alarms-response-structure.json",
+  "name": "DescribeAlarmsResponse",
+  "description": "Response from the DescribeAlarms action",
+  "type": "object",
+  "properties": {
+    "metricAlarms": {
+      "type": "array",
+      "description": "The information about the alarms",
+      "items": {
+        "$ref": "#/components/schemas/Alarm"
+      }
+    },
+    "nextToken": {
+      "type": "string",
+      "description": "Token for the next page of results"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudwatch/refs/heads/main/json-schema/cloudwatch-dashboard-schema.json",
+  "title": "Dashboard",
+  "description": "Represents a CloudWatch dashboard",
+  "type": "object",
+  "properties": {
+    "dashboardName": {
+      "type": "string",
+      "description": "The name of the dashboard"
+    },
+    "dashboardArn": {
+      "type": "string",
+      "description": "The ARN of the dashboard"
+    },
+    "lastModified": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time stamp of when the dashboard was last modified"
+    },
+    "size": {
+      "type": "integer",
+      "description": "The size of the dashboard in bytes"
+    }
+  }
+}

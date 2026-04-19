@@ -1,0 +1,6 @@
+{
+  "dashboardName": "example-resource",
+  "dashboardArn": "arn:aws:::example/abc12345",
+  "lastModified": "2025-03-15T14:30:00Z",
+  "size": 100
+}

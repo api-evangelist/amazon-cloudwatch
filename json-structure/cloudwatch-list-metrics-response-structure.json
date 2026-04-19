@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudwatch/refs/heads/main/json-structure/cloudwatch-list-metrics-response-structure.json",
+  "name": "ListMetricsResponse",
+  "description": "Response from the ListMetrics action",
+  "type": "object",
+  "properties": {
+    "metrics": {
+      "type": "array",
+      "description": "The metrics that match the filter criteria",
+      "items": {
+        "$ref": "#/components/schemas/Metric"
+      }
+    },
+    "nextToken": {
+      "type": "string",
+      "description": "Token for the next page of results"
+    }
+  }
+}

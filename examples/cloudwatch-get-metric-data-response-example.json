@@ -1,0 +1,16 @@
+{
+  "metricDataResults": [
+    {
+      "id": "abc12345",
+      "label": "example-value",
+      "timestamps": [
+        "2025-03-15T14:30:00Z"
+      ],
+      "values": [
+        42.5
+      ],
+      "statusCode": "Complete"
+    }
+  ],
+  "nextToken": "example-value"
+}
