@@ -1,0 +1,44 @@
+generated: '2026-06-20'
+method: derived
+source: openapi/amazon-cloudwatch-openapi.yml
+notes: >-
+  Derived from the OpenAPI in this repo plus AWS public documentation. CloudWatch
+  is an AWS query/XML service authenticated with AWS Signature Version 4; it does
+  not implement OAuth2/OIDC, and error responses are AWS query-protocol XML rather
+  than RFC 9457 problem+json.
+standards:
+  - id: aws-sigv4
+    conforms: true
+    evidence: openapi securityScheme sigv4Auth; all operations require AWS Signature Version 4
+  - id: oauth2
+    conforms: false
+    evidence: no oauth2 security scheme; authentication is AWS SigV4
+  - id: oidc
+    conforms: false
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: errors returned as AWS query-protocol XML, not application/problem+json
+  - id: pagination
+    conforms: true
+    evidence: NextToken cursor pagination on GetMetricData, ListMetrics, DescribeAlarms, ListDashboards
+  - id: idempotency
+    conforms: false
+    evidence: no Idempotency-Key header; PutMetricAlarm/PutDashboard are natively upsert operations
+  - id: prometheus-promql
+    conforms: true
+    evidence: PutMetricAlarm accepts PromQL queries; Amazon Managed Service for Prometheus and CloudWatch MCP expose PromQL
+  - id: opentelemetry
+    conforms: true
+    evidence: CloudWatch ingests OpenTelemetry metrics and traces (AWS Distro for OpenTelemetry / Application Signals)
+  - id: fhir-r4
+    conforms: false
+  - id: scim2
+    conforms: false
+  - id: odata
+    conforms: false
+  - id: json-api
+    conforms: false
+  - id: fapi
+    conforms: false
+  - id: psd2
+    conforms: false

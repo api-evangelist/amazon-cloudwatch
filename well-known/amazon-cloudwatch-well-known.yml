@@ -1,0 +1,25 @@
+generated: '2026-06-20'
+method: searched
+notes: >-
+  The CloudWatch API endpoint (monitoring.<region>.amazonaws.com) is a
+  SigV4-signed query/XML service and serves no /.well-known/ discovery
+  documents (all probes returned 404). A valid RFC 9116 security.txt is
+  published on the AWS corporate/website host and is captured here.
+hosts:
+  - host: https://monitoring.us-east-1.amazonaws.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: https://aws.amazon.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: amazon-cloudwatch-security.txt

@@ -1,0 +1,70 @@
+generated: '2026-06-20'
+method: searched
+source: https://aws.amazon.com/developer/tools/
+description: >-
+  First-party AWS SDK client libraries that ship a dedicated CloudWatch service
+  client, plus the AWS CLI. CloudWatch is accessed through the standard AWS SDKs;
+  each language SDK exposes a CloudWatch client generated from the same service
+  model as the OpenAPI in this repo.
+packages:
+  - language: javascript
+    registry: npm
+    name: "@aws-sdk/client-cloudwatch"
+    url: https://www.npmjs.com/package/@aws-sdk/client-cloudwatch
+    install: npm install @aws-sdk/client-cloudwatch
+    official: true
+  - language: python
+    registry: pypi
+    name: boto3
+    url: https://pypi.org/project/boto3/
+    install: pip install boto3
+    official: true
+  - language: python
+    registry: pypi
+    name: botocore
+    url: https://pypi.org/project/botocore/
+    install: pip install botocore
+    official: true
+  - language: java
+    registry: maven
+    name: software.amazon.awssdk:cloudwatch
+    url: https://central.sonatype.com/artifact/software.amazon.awssdk/cloudwatch
+    install: "implementation 'software.amazon.awssdk:cloudwatch'"
+    official: true
+  - language: dotnet
+    registry: nuget
+    name: AWSSDK.CloudWatch
+    url: https://www.nuget.org/packages/AWSSDK.CloudWatch
+    install: dotnet add package AWSSDK.CloudWatch
+    official: true
+  - language: go
+    registry: pkg.go.dev
+    name: github.com/aws/aws-sdk-go-v2/service/cloudwatch
+    url: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cloudwatch
+    install: go get github.com/aws/aws-sdk-go-v2/service/cloudwatch
+    official: true
+  - language: ruby
+    registry: rubygems
+    name: aws-sdk-cloudwatch
+    url: https://rubygems.org/gems/aws-sdk-cloudwatch
+    install: gem install aws-sdk-cloudwatch
+    official: true
+  - language: php
+    registry: packagist
+    name: aws/aws-sdk-php
+    url: https://packagist.org/packages/aws/aws-sdk-php
+    install: composer require aws/aws-sdk-php
+    official: true
+  - language: rust
+    registry: crates.io
+    name: aws-sdk-cloudwatch
+    url: https://crates.io/crates/aws-sdk-cloudwatch
+    install: cargo add aws-sdk-cloudwatch
+    official: true
+  - language: cli
+    registry: pypi
+    name: awscli
+    url: https://pypi.org/project/awscli/
+    install: pip install awscli
+    official: true
+    notes: "aws cloudwatch <command> — https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/"

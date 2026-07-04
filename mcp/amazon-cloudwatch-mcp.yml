@@ -1,0 +1,58 @@
+generated: '2026-06-20'
+method: searched
+status: published
+source: https://awslabs.github.io/mcp/servers/cloudwatch-mcp-server
+description: >-
+  Official AWS Labs CloudWatch MCP server. Runs locally (stdio) on the same host
+  as the LLM client and uses the caller's AWS credentials to expose CloudWatch
+  metrics, PromQL, alarms, and Logs Insights for AI-assisted troubleshooting.
+  Announced July 2025 alongside the Application Signals MCP server.
+server:
+  name: awslabs.cloudwatch-mcp-server
+  transport: stdio
+  hosting: local
+  repo: https://github.com/awslabs/mcp/tree/main/src/cloudwatch-mcp-server
+  package:
+    registry: pypi
+    name: awslabs.cloudwatch-mcp-server
+    url: https://pypi.org/project/awslabs.cloudwatch-mcp-server/
+    install: uvx awslabs.cloudwatch-mcp-server@latest
+tools:
+  - name: get_metric_data
+    description: Retrieve detailed metric data with percentiles, math expressions, and multi-metric batching.
+  - name: get_metric_metadata
+    description: Obtain comprehensive metadata about a specific CloudWatch metric.
+  - name: get_recommended_metric_alarms
+    description: Suggest alarm configurations based on best practices and statistical analysis.
+  - name: analyze_metric
+    description: Examine metric data for trends, seasonality, and statistical properties.
+  - name: execute_promql_query
+    description: Run an instant PromQL query returning single-point-in-time values.
+  - name: execute_promql_range_query
+    description: Execute a PromQL query over a time window for trend analysis.
+  - name: get_promql_label_values
+    description: Retrieve values for a specific PromQL label for metric discovery.
+  - name: get_promql_series
+    description: Find time series matching PromQL label selectors.
+  - name: get_promql_labels
+    description: List available PromQL label names.
+  - name: get_active_alarms
+    description: Identify currently active alarms across the account.
+  - name: get_alarm_history
+    description: Retrieve historical state changes and patterns for alarms.
+  - name: describe_log_groups
+    description: Find metadata about log groups.
+  - name: analyze_log_group
+    description: Analyze logs for anomalies, patterns, and errors.
+  - name: execute_log_insights_query
+    description: Execute a Logs Insights query on log groups.
+  - name: execute_cwl_insights_batch
+    description: Run queries across multiple log groups/regions with automatic handling.
+  - name: get_logs_insight_query_results
+    description: Retrieve results from an executed Logs Insights query.
+  - name: cancel_logs_insight_query
+    description: Cancel an in-progress Logs Insights query.
+related_servers:
+  - name: awslabs.cloudwatch-appsignals-mcp-server
+    description: Companion Application Signals MCP server for SLO and service-map troubleshooting.
+    url: https://awslabs.github.io/mcp/servers/cloudwatch-appsignals-mcp-server

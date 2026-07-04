@@ -1,0 +1,6 @@
+{
+  "repo": "amazon-cloudwatch",
+  "feeds": [ { "source": "https://aws.amazon.com/blogs/mt/tag/amazon-cloudwatch/feed/", "feed_url": "https://aws.amazon.com/blogs/mt/tag/amazon-cloudwatch/feed/", "title": "Amazon CloudWatch – AWS Cloud Operations Blog", "saved": 19 } ],
+  "fetched": "2026-07-04T13:39:37Z",
+  "post_count": 19
+}

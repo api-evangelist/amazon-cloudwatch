@@ -9,7 +9,7 @@ description: >-
   Amazon CloudWatch is an intelligent observability platform providing complete visibility into performance, availability, and security across your entire technology stack. Monitor applications, infrastructure,
   and workloads with unified metrics, logs, and traces plus AI-powered insights.
 created: '2024-01-15'
-modified: '2026-04-19'
+modified: '2026-06-20'
 apis:
 - name: Amazon CloudWatch API
   description: API for publishing metrics, creating alarms, managing dashboards, querying logs, and configuring observability for AWS resources and applications.
@@ -48,6 +48,16 @@ apis:
     url: json-schema/cloudwatch-put-dashboard-response-schema.json
   - type: JSONLD
     url: json-ld/amazon-cloudwatch-context.jsonld
+  - type: Overlay
+    url: overlays/amazon-cloudwatch-openapi-overlay.yaml
+  - type: MCPServer
+    url: mcp/amazon-cloudwatch-mcp.yml
+  - type: Conformance
+    url: conformance/amazon-cloudwatch-conformance.yml
+  - type: ErrorCatalog
+    url: errors/amazon-cloudwatch-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-cloudwatch-lifecycle.yml
 common:
 - type: Portal
   url: https://aws.amazon.com/
@@ -63,6 +73,8 @@ common:
   url: https://aws.amazon.com/premiumsupport/
 - type: Blog
   url: https://aws.amazon.com/blogs/mt/
+- type: BlogRSS
+  url: https://aws.amazon.com/blogs/mt/tag/amazon-cloudwatch/feed/
 - type: GitHubOrganization
   url: https://github.com/aws
 - type: Console
@@ -85,6 +97,14 @@ common:
   url: vocabulary/amazon-cloudwatch-vocabulary.yaml
 - type: NaftikoCapability
   url: capabilities/observability.yaml
+- type: Packages
+  url: packages/amazon-cloudwatch-packages.yml
+- type: WellKnown
+  url: well-known/amazon-cloudwatch-well-known.yml
+- type: SecurityTxt
+  url: well-known/amazon-cloudwatch-security.txt
+- type: LLMsTxt
+  url: llms/amazon-cloudwatch-llms.txt
 - type: Features
   data:
   - name: Unified Observability

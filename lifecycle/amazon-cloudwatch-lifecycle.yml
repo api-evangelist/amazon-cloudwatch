@@ -1,0 +1,24 @@
+generated: '2026-06-20'
+method: searched
+source: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/
+notes: >-
+  CloudWatch uses AWS's date-based API version model. The service API version is
+  frozen at 2010-08-01 and pinned per request; AWS evolves the API additively and
+  does not remove operations, so there is no separately versioned URI path. AWS
+  publishes maintenance/deprecation notices via the AWS Health Dashboard and blog
+  rather than RFC 8594 Sunset/Deprecation response headers.
+versioning:
+  scheme: date-based-api-version
+  current: '2010-08-01'
+  strategy: additive; SigV4 endpoint per region (monitoring.<region>.amazonaws.com)
+  docs: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/
+deprecation:
+  policy_url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/
+  sunset_header: false
+  deprecation_header: false
+  channel: AWS Health Dashboard and AWS Management & Governance blog
+sla:
+  url: https://aws.amazon.com/cloudwatch/sla/
+  uptime_target: "99.9%"
+status_page: https://health.aws.amazon.com/health/status
+deprecated_operations: []

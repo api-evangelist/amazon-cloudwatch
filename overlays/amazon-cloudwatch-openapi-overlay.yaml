@@ -1,0 +1,45 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Amazon CloudWatch API
+  version: 1.0.0
+generated: '2026-06-20'
+method: generated
+source: openapi/amazon-cloudwatch-openapi.yml
+extends: openapi/amazon-cloudwatch-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: Amazon Web Services
+      x-apievangelist-slug: amazon-cloudwatch
+      x-apievangelist-category: observability
+      x-apievangelist-auth: aws-sigv4
+      x-apievangelist-mcp: https://awslabs.github.io/mcp/servers/cloudwatch-mcp-server
+  - target: $.info
+    update:
+      x-apievangelist-tags:
+        - AWS
+        - CloudWatch
+        - Monitoring
+        - Observability
+        - Metrics
+        - Logs
+  - target: $.tags
+    update:
+      - name: Metrics
+        x-apievangelist-note: Publish and query time-series metric data (PutMetricData, GetMetricData, ListMetrics).
+      - name: Alarms
+        x-apievangelist-note: Threshold and composite alarms that drive automated actions.
+      - name: Dashboards
+        x-apievangelist-note: JSON-defined dashboards for visualizing metrics.
+  - target: $.paths['/?Action=GetMetricData'].get
+    update:
+      x-apievangelist-pagination: NextToken
+  - target: $.paths['/?Action=ListMetrics'].get
+    update:
+      x-apievangelist-pagination: NextToken
+  - target: $.paths['/?Action=DescribeAlarms'].get
+    update:
+      x-apievangelist-pagination: NextToken
+  - target: $.paths['/?Action=ListDashboards'].get
+    update:
+      x-apievangelist-pagination: NextToken

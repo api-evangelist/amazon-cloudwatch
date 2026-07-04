@@ -1,0 +1,71 @@
+generated: '2026-06-20'
+method: derived
+format: aws-query-xml
+source: openapi/amazon-cloudwatch-openapi.yml
+enriched_from: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CommonErrors.md
+notes: >-
+  CloudWatch returns AWS query-protocol XML errors (an <ErrorResponse> with a
+  Code and Message), not RFC 9457 application/problem+json. The generic 4xx/5xx
+  responses in the OpenAPI map to the AWS common error codes below; titles and
+  remediation are taken verbatim from the AWS Common Error Types reference.
+problems:
+  - code: AccessDeniedException
+    status: 403
+    title: You don't have permission to perform this action.
+    remediation: Verify that your IAM policy includes the required permissions.
+  - code: ExpiredTokenException
+    status: 403
+    title: The security token included in the request has expired.
+    remediation: Request a new security token and try again.
+  - code: IncompleteSignature
+    status: 403
+    title: The request signature doesn't conform to AWS standards.
+    remediation: Verify valid AWS credentials and a properly formatted request; update your SDK.
+  - code: NotAuthorized
+    status: 401
+    title: You don't have permissions to perform this action.
+    remediation: Verify that your IAM policy includes the required permissions.
+  - code: OptInRequired
+    status: 403
+    title: Your AWS account needs a subscription for this service.
+    remediation: Verify that you've enabled the service in your account.
+  - code: UnrecognizedClientException
+    status: 403
+    title: The X.509 certificate or AWS access key ID you provided doesn't exist in our records.
+    remediation: Verify that you're using valid, unexpired credentials.
+  - code: MalformedHttpRequestException
+    status: 400
+    title: The request body can't be processed.
+    remediation: Verify the content encoding header matches the compression format used.
+  - code: RequestAbortedException
+    status: 400
+    title: The request was aborted before a response could be returned.
+    remediation: Typically the client closed the connection; retry the request.
+  - code: ThrottlingException
+    status: 400
+    title: Your request rate is too high.
+    remediation: Reduce request frequency; AWS SDKs retry this automatically.
+  - code: ValidationError
+    status: 400
+    title: The input doesn't meet the required format or constraints.
+    remediation: Check that all required parameters are included and values are valid.
+  - code: RequestTimeoutException
+    status: 408
+    title: The request timed out.
+    remediation: The server didn't receive the complete request in time; try again.
+  - code: RequestEntityTooLargeException
+    status: 413
+    title: The request entity is too large.
+    remediation: Reduce the size of the request body and try again.
+  - code: UnknownOperationException
+    status: 404
+    title: The action or operation isn't recognized.
+    remediation: Verify the action name spelling and that it's supported by the API version.
+  - code: InternalFailure
+    status: 500
+    title: The request can't be processed because of an internal server issue.
+    remediation: Try again later; if it persists, contact AWS Support.
+  - code: ServiceUnavailable
+    status: 503
+    title: The service is temporarily unavailable.
+    remediation: Try again later.
