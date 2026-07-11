@@ -59,6 +59,14 @@ apis:
   - type: Lifecycle
     url: lifecycle/amazon-cloudwatch-lifecycle.yml
 common:
+- type: TrustCenter
+  url: security/amazon-cloudwatch-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/amazon-cloudwatch-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/amazon-cloudwatch-domain-security.yml
+- type: Authentication
+  url: authentication/amazon-cloudwatch-authentication.yml
 - type: Portal
   url: https://aws.amazon.com/
 - type: Website
