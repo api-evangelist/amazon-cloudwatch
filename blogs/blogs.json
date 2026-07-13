@@ -1,6 +1,28 @@
 {
   "repo": "amazon-cloudwatch",
-  "feeds": [ { "source": "https://aws.amazon.com/blogs/mt/tag/amazon-cloudwatch/feed/", "feed_url": "https://aws.amazon.com/blogs/mt/tag/amazon-cloudwatch/feed/", "title": "Amazon CloudWatch – AWS Cloud Operations Blog", "saved": 19 } ],
-  "fetched": "2026-07-04T13:39:37Z",
-  "post_count": 19
+  "feeds": [
+    {
+      "source": "https://aws.amazon.com/blogs/mt/tag/amazon-cloudwatch/feed/",
+      "feed_url": "https://aws.amazon.com/blogs/mt/tag/amazon-cloudwatch/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://aws.amazon.com/premiumsupport/",
+      "feed_url": "https://aws.amazon.com/premiumsupport/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
+      "source": "https://aws.amazon.com/blogs/mt/",
+      "feed_url": "https://aws.amazon.com/blogs/mt/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 20
 }
