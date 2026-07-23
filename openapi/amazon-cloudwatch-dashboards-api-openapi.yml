@@ -1,0 +1,176 @@
+openapi: 3.1.0
+info:
+  title: Amazon CloudWatch Alarms Dashboards API
+  description: Amazon CloudWatch monitors your Amazon Web Services resources and the applications you run on AWS in real time. You can use CloudWatch to collect and track metrics, create alarms that send notifications, and automatically react to changes in your AWS resources. CloudWatch provides a reliable, scalable, and flexible monitoring solution for your cloud infrastructure.
+  version: '2010-08-01'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/contact-us/
+  termsOfService: https://aws.amazon.com/service-terms/
+servers:
+- url: https://monitoring.{region}.amazonaws.com
+  description: Amazon CloudWatch Regional Endpoint
+  variables:
+    region:
+      default: us-east-1
+      description: AWS Region
+security:
+- sigv4Auth: []
+tags:
+- name: Dashboards
+  description: Operations for creating, retrieving, and listing CloudWatch dashboards
+paths:
+  /?Action=PutDashboard:
+    get:
+      operationId: putDashboard
+      summary: Amazon CloudWatch Create or update a dashboard
+      description: Creates a dashboard if it does not already exist, or updates an existing dashboard. If you update a dashboard, the entire contents are replaced with what you specify here. There is no limit to the number of dashboards in your account.
+      tags:
+      - Dashboards
+      parameters:
+      - name: DashboardName
+        in: query
+        required: true
+        description: The name of the dashboard
+        schema:
+          type: string
+      - name: DashboardBody
+        in: query
+        required: true
+        description: The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully created or updated dashboard
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/PutDashboardResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=GetDashboard:
+    get:
+      operationId: getDashboard
+      summary: Amazon CloudWatch Get a dashboard
+      description: Displays the details of the dashboard that you specify. To copy an existing dashboard, use GetDashboard, and then use the data returned within DashboardBody as the template for the new dashboard.
+      tags:
+      - Dashboards
+      parameters:
+      - name: DashboardName
+        in: query
+        required: true
+        description: The name of the dashboard to retrieve
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved dashboard
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetDashboardResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=ListDashboards:
+    get:
+      operationId: listDashboards
+      summary: Amazon CloudWatch List dashboards
+      description: Returns a list of the dashboards for your account. If you include DashboardNamePrefix, only those dashboards with names starting with the prefix are listed. Otherwise, all dashboards in your account are listed.
+      tags:
+      - Dashboards
+      parameters:
+      - name: DashboardNamePrefix
+        in: query
+        description: Filter dashboards by name prefix
+        schema:
+          type: string
+      - name: NextToken
+        in: query
+        description: Token for the next page of results
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully listed dashboards
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ListDashboardsResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+components:
+  schemas:
+    ListDashboardsResponse:
+      type: object
+      description: Response from the ListDashboards action
+      properties:
+        dashboardEntries:
+          type: array
+          description: The list of matching dashboards
+          items:
+            $ref: '#/components/schemas/Dashboard'
+        nextToken:
+          type: string
+          description: Token for the next page of results
+    GetDashboardResponse:
+      type: object
+      description: Response from the GetDashboard action
+      properties:
+        dashboardArn:
+          type: string
+          description: The ARN of the dashboard
+        dashboardBody:
+          type: string
+          description: The detailed information about the dashboard in JSON format
+        dashboardName:
+          type: string
+          description: The name of the dashboard
+    PutDashboardResponse:
+      type: object
+      description: Response from the PutDashboard action
+      properties:
+        dashboardValidationMessages:
+          type: array
+          description: Validation messages from the dashboard body
+          items:
+            type: object
+            properties:
+              dataPath:
+                type: string
+                description: The data path related to the message
+              message:
+                type: string
+                description: A message describing the error or warning
+    Dashboard:
+      type: object
+      description: Represents a CloudWatch dashboard
+      properties:
+        dashboardName:
+          type: string
+          description: The name of the dashboard
+        dashboardArn:
+          type: string
+          description: The ARN of the dashboard
+        lastModified:
+          type: string
+          format: date-time
+          description: The time stamp of when the dashboard was last modified
+        size:
+          type: integer
+          description: The size of the dashboard in bytes
+  securitySchemes:
+    sigv4Auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication
+externalDocs:
+  description: Amazon CloudWatch API Reference
+  url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/

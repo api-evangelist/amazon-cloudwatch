@@ -1,0 +1,426 @@
+openapi: 3.1.0
+info:
+  title: Amazon CloudWatch Alarms Metrics API
+  description: Amazon CloudWatch monitors your Amazon Web Services resources and the applications you run on AWS in real time. You can use CloudWatch to collect and track metrics, create alarms that send notifications, and automatically react to changes in your AWS resources. CloudWatch provides a reliable, scalable, and flexible monitoring solution for your cloud infrastructure.
+  version: '2010-08-01'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/contact-us/
+  termsOfService: https://aws.amazon.com/service-terms/
+servers:
+- url: https://monitoring.{region}.amazonaws.com
+  description: Amazon CloudWatch Regional Endpoint
+  variables:
+    region:
+      default: us-east-1
+      description: AWS Region
+security:
+- sigv4Auth: []
+tags:
+- name: Metrics
+  description: Operations for publishing, retrieving, and listing CloudWatch metrics
+paths:
+  /?Action=PutMetricData:
+    get:
+      operationId: putMetricData
+      summary: Amazon CloudWatch Publish metric data points
+      description: Publishes metric data points to Amazon CloudWatch. CloudWatch associates the data points with the specified metric. If the specified metric does not exist, CloudWatch creates the metric. When CloudWatch creates a metric, it can take up to fifteen minutes for the metric to appear in calls to ListMetrics.
+      tags:
+      - Metrics
+      parameters:
+      - name: Namespace
+        in: query
+        required: true
+        description: The namespace for the metric data
+        schema:
+          type: string
+          minLength: 1
+          maxLength: 256
+      - name: MetricData.member.1.MetricName
+        in: query
+        required: true
+        description: The name of the metric
+        schema:
+          type: string
+          minLength: 1
+          maxLength: 256
+      - name: MetricData.member.1.Value
+        in: query
+        description: The value for the metric
+        schema:
+          type: number
+      - name: MetricData.member.1.Timestamp
+        in: query
+        description: The time the metric data was received
+        schema:
+          type: string
+          format: date-time
+      - name: MetricData.member.1.Unit
+        in: query
+        description: The unit of the metric
+        schema:
+          type: string
+          enum:
+          - Seconds
+          - Microseconds
+          - Milliseconds
+          - Bytes
+          - Kilobytes
+          - Megabytes
+          - Gigabytes
+          - Terabytes
+          - Bits
+          - Kilobits
+          - Megabits
+          - Gigabits
+          - Terabits
+          - Percent
+          - Count
+          - Bytes/Second
+          - Kilobytes/Second
+          - Megabytes/Second
+          - Gigabytes/Second
+          - Terabytes/Second
+          - Bits/Second
+          - Kilobits/Second
+          - Megabits/Second
+          - Gigabits/Second
+          - Terabits/Second
+          - Count/Second
+          - None
+      - name: MetricData.member.1.Dimensions.member.1.Name
+        in: query
+        description: The name of the dimension
+        schema:
+          type: string
+      - name: MetricData.member.1.Dimensions.member.1.Value
+        in: query
+        description: The value of the dimension
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully published metric data
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+        '403':
+          description: Authorization failure
+  /?Action=GetMetricData:
+    get:
+      operationId: getMetricData
+      summary: Amazon CloudWatch Retrieve metric data
+      description: Retrieves CloudWatch metric values. You can use GetMetricData to retrieve as many as 500 different metrics in a single request, with a total of as many as 100,800 data points.
+      tags:
+      - Metrics
+      parameters:
+      - name: StartTime
+        in: query
+        required: true
+        description: The start of the time range to retrieve metric data
+        schema:
+          type: string
+          format: date-time
+      - name: EndTime
+        in: query
+        required: true
+        description: The end of the time range to retrieve metric data
+        schema:
+          type: string
+          format: date-time
+      - name: MetricDataQueries.member.1.Id
+        in: query
+        required: true
+        description: A short name to identify the query
+        schema:
+          type: string
+      - name: MetricDataQueries.member.1.MetricStat.Metric.Namespace
+        in: query
+        description: The namespace of the metric
+        schema:
+          type: string
+      - name: MetricDataQueries.member.1.MetricStat.Metric.MetricName
+        in: query
+        description: The name of the metric
+        schema:
+          type: string
+      - name: MetricDataQueries.member.1.MetricStat.Period
+        in: query
+        description: The granularity in seconds of the returned data points
+        schema:
+          type: integer
+          minimum: 1
+      - name: MetricDataQueries.member.1.MetricStat.Stat
+        in: query
+        description: The statistic to return (e.g., Average, Sum, Maximum)
+        schema:
+          type: string
+      - name: MaxDatapoints
+        in: query
+        description: The maximum number of data points to return
+        schema:
+          type: integer
+      - name: NextToken
+        in: query
+        description: Token for the next page of results
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved metric data
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetMetricDataResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=GetMetricStatistics:
+    get:
+      operationId: getMetricStatistics
+      summary: Amazon CloudWatch Get statistics for a metric
+      description: 'Gets statistics for the specified metric. The maximum number of data points returned from a single call is 1,440. CloudWatch retains metric data as follows: data points with a period of less than 60 seconds are available for 3 hours, 60-second data points for 15 days, 5-minute data points for 63 days, and 1-hour data points for 455 days.'
+      tags:
+      - Metrics
+      parameters:
+      - name: Namespace
+        in: query
+        required: true
+        description: The namespace of the metric
+        schema:
+          type: string
+      - name: MetricName
+        in: query
+        required: true
+        description: The name of the metric
+        schema:
+          type: string
+      - name: StartTime
+        in: query
+        required: true
+        description: The start of the time range for the data points
+        schema:
+          type: string
+          format: date-time
+      - name: EndTime
+        in: query
+        required: true
+        description: The end of the time range for the data points
+        schema:
+          type: string
+          format: date-time
+      - name: Period
+        in: query
+        required: true
+        description: The granularity in seconds of the returned data points
+        schema:
+          type: integer
+          minimum: 1
+      - name: Statistics.member.1
+        in: query
+        description: The metric statistic to return
+        schema:
+          type: string
+          enum:
+          - SampleCount
+          - Average
+          - Sum
+          - Minimum
+          - Maximum
+      - name: Dimensions.member.1.Name
+        in: query
+        description: The name of the dimension
+        schema:
+          type: string
+      - name: Dimensions.member.1.Value
+        in: query
+        description: The value of the dimension
+        schema:
+          type: string
+      - name: Unit
+        in: query
+        description: The unit for the metric
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully retrieved metric statistics
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GetMetricStatisticsResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=ListMetrics:
+    get:
+      operationId: listMetrics
+      summary: Amazon CloudWatch List available metrics
+      description: List the specified metrics. You can use the returned metrics with GetMetricData or GetMetricStatistics to get statistical data. Up to 500 results are returned for any one call.
+      tags:
+      - Metrics
+      parameters:
+      - name: Namespace
+        in: query
+        description: Filter by namespace
+        schema:
+          type: string
+      - name: MetricName
+        in: query
+        description: Filter by metric name
+        schema:
+          type: string
+      - name: Dimensions.member.1.Name
+        in: query
+        description: The name of the dimension to filter by
+        schema:
+          type: string
+      - name: Dimensions.member.1.Value
+        in: query
+        description: The value of the dimension to filter by
+        schema:
+          type: string
+      - name: NextToken
+        in: query
+        description: Token for the next page of results
+        schema:
+          type: string
+      - name: RecentlyActive
+        in: query
+        description: Filter to metrics that have had data points published in the past three hours
+        schema:
+          type: string
+          enum:
+          - PT3H
+      responses:
+        '200':
+          description: Successfully listed metrics
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ListMetricsResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+components:
+  schemas:
+    GetMetricDataResponse:
+      type: object
+      description: Response from the GetMetricData action
+      properties:
+        metricDataResults:
+          type: array
+          description: The metrics that are returned
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: The short name specified in the query
+              label:
+                type: string
+                description: The human-readable label for the metric
+              timestamps:
+                type: array
+                description: The timestamps for the data points
+                items:
+                  type: string
+                  format: date-time
+              values:
+                type: array
+                description: The data point values
+                items:
+                  type: number
+              statusCode:
+                type: string
+                description: The status of the returned data
+                enum:
+                - Complete
+                - InternalError
+                - PartialData
+                - Forbidden
+        nextToken:
+          type: string
+          description: Token for the next page of results
+    ListMetricsResponse:
+      type: object
+      description: Response from the ListMetrics action
+      properties:
+        metrics:
+          type: array
+          description: The metrics that match the filter criteria
+          items:
+            $ref: '#/components/schemas/Metric'
+        nextToken:
+          type: string
+          description: Token for the next page of results
+    Metric:
+      type: object
+      description: Represents a specific metric
+      properties:
+        namespace:
+          type: string
+          description: The namespace of the metric
+        metricName:
+          type: string
+          description: The name of the metric
+        dimensions:
+          type: array
+          description: The dimensions for the metric
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: The name of the dimension
+              value:
+                type: string
+                description: The value of the dimension
+    GetMetricStatisticsResponse:
+      type: object
+      description: Response from the GetMetricStatistics action
+      properties:
+        label:
+          type: string
+          description: A label for the specified metric
+        datapoints:
+          type: array
+          description: The data points for the specified metric
+          items:
+            type: object
+            properties:
+              timestamp:
+                type: string
+                format: date-time
+                description: The time stamp for the data point
+              sampleCount:
+                type: number
+                description: The number of metric values
+              average:
+                type: number
+                description: The average of the metric values
+              sum:
+                type: number
+                description: The sum of the metric values
+              minimum:
+                type: number
+                description: The minimum metric value
+              maximum:
+                type: number
+                description: The maximum metric value
+              unit:
+                type: string
+                description: The standard unit for the data point
+  securitySchemes:
+    sigv4Auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication
+externalDocs:
+  description: Amazon CloudWatch API Reference
+  url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/

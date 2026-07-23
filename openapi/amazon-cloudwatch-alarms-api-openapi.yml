@@ -1,0 +1,334 @@
+openapi: 3.1.0
+info:
+  title: Amazon CloudWatch Alarms API
+  description: Amazon CloudWatch monitors your Amazon Web Services resources and the applications you run on AWS in real time. You can use CloudWatch to collect and track metrics, create alarms that send notifications, and automatically react to changes in your AWS resources. CloudWatch provides a reliable, scalable, and flexible monitoring solution for your cloud infrastructure.
+  version: '2010-08-01'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/contact-us/
+  termsOfService: https://aws.amazon.com/service-terms/
+servers:
+- url: https://monitoring.{region}.amazonaws.com
+  description: Amazon CloudWatch Regional Endpoint
+  variables:
+    region:
+      default: us-east-1
+      description: AWS Region
+security:
+- sigv4Auth: []
+tags:
+- name: Alarms
+  description: Operations for creating, describing, and deleting metric alarms
+paths:
+  /?Action=PutMetricAlarm:
+    get:
+      operationId: putMetricAlarm
+      summary: Amazon CloudWatch Create or update a metric alarm
+      description: Creates or updates an alarm and associates it with the specified metric, metric math expression, anomaly detection model, or Metrics Insights query. When the alarm state changes, the action specified is performed.
+      tags:
+      - Alarms
+      parameters:
+      - name: AlarmName
+        in: query
+        required: true
+        description: The name for the alarm
+        schema:
+          type: string
+          minLength: 1
+          maxLength: 255
+      - name: AlarmDescription
+        in: query
+        description: A description for the alarm
+        schema:
+          type: string
+          maxLength: 1024
+      - name: Namespace
+        in: query
+        description: The namespace for the metric associated with the alarm
+        schema:
+          type: string
+      - name: MetricName
+        in: query
+        description: The name for the metric associated with the alarm
+        schema:
+          type: string
+      - name: Statistic
+        in: query
+        description: The statistic for the metric associated with the alarm
+        schema:
+          type: string
+          enum:
+          - SampleCount
+          - Average
+          - Sum
+          - Minimum
+          - Maximum
+      - name: Period
+        in: query
+        description: The length in seconds of the evaluation period
+        schema:
+          type: integer
+          minimum: 10
+      - name: EvaluationPeriods
+        in: query
+        required: true
+        description: The number of periods over which data is compared to the threshold
+        schema:
+          type: integer
+          minimum: 1
+      - name: Threshold
+        in: query
+        description: The value to compare with the specified statistic
+        schema:
+          type: number
+      - name: ComparisonOperator
+        in: query
+        required: true
+        description: The arithmetic operation to use when comparing the statistic and threshold
+        schema:
+          type: string
+          enum:
+          - GreaterThanOrEqualToThreshold
+          - GreaterThanThreshold
+          - LessThanThreshold
+          - LessThanOrEqualToThreshold
+          - LessThanLowerOrGreaterThanUpperThreshold
+          - LessThanLowerThreshold
+          - GreaterThanUpperThreshold
+      - name: ActionsEnabled
+        in: query
+        description: Whether actions should be executed during alarm state changes
+        schema:
+          type: boolean
+      - name: AlarmActions.member.1
+        in: query
+        description: The ARN of the action to execute when the alarm transitions to ALARM state
+        schema:
+          type: string
+      - name: OKActions.member.1
+        in: query
+        description: The ARN of the action to execute when the alarm transitions to OK state
+        schema:
+          type: string
+      - name: InsufficientDataActions.member.1
+        in: query
+        description: The ARN of the action to execute when the alarm transitions to INSUFFICIENT_DATA state
+        schema:
+          type: string
+      - name: Dimensions.member.1.Name
+        in: query
+        description: The name of the dimension
+        schema:
+          type: string
+      - name: Dimensions.member.1.Value
+        in: query
+        description: The value of the dimension
+        schema:
+          type: string
+      - name: TreatMissingData
+        in: query
+        description: How to treat missing data when evaluating the alarm
+        schema:
+          type: string
+          enum:
+          - breaching
+          - notBreaching
+          - ignore
+          - missing
+      responses:
+        '200':
+          description: Successfully created or updated alarm
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+        '403':
+          description: Authorization failure
+  /?Action=DescribeAlarms:
+    get:
+      operationId: describeAlarms
+      summary: Amazon CloudWatch Describe metric alarms
+      description: Retrieves the specified alarms. You can filter the results by specifying a prefix for the alarm name, the alarm state, or a prefix for any action.
+      tags:
+      - Alarms
+      parameters:
+      - name: AlarmNames.member.1
+        in: query
+        description: The name of the alarm to retrieve
+        schema:
+          type: string
+      - name: AlarmNamePrefix
+        in: query
+        description: An alarm name prefix to filter by
+        schema:
+          type: string
+      - name: StateValue
+        in: query
+        description: Filter by alarm state
+        schema:
+          type: string
+          enum:
+          - OK
+          - ALARM
+          - INSUFFICIENT_DATA
+      - name: ActionPrefix
+        in: query
+        description: An action name prefix to filter by
+        schema:
+          type: string
+      - name: MaxRecords
+        in: query
+        description: The maximum number of alarm descriptions to retrieve
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+      - name: NextToken
+        in: query
+        description: Token for the next page of results
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully described alarms
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeAlarmsResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+  /?Action=DeleteAlarms:
+    get:
+      operationId: deleteAlarms
+      summary: Amazon CloudWatch Delete metric alarms
+      description: Deletes the specified alarms. You can delete up to 100 alarms in one operation. In the event of an error, no alarms are deleted.
+      tags:
+      - Alarms
+      parameters:
+      - name: AlarmNames.member.1
+        in: query
+        required: true
+        description: The name of the alarm to delete
+        schema:
+          type: string
+      - name: AlarmNames.member.2
+        in: query
+        description: Additional alarm name to delete
+        schema:
+          type: string
+      - name: AlarmNames.member.3
+        in: query
+        description: Additional alarm name to delete
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successfully deleted alarms
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+components:
+  schemas:
+    DescribeAlarmsResponse:
+      type: object
+      description: Response from the DescribeAlarms action
+      properties:
+        metricAlarms:
+          type: array
+          description: The information about the alarms
+          items:
+            $ref: '#/components/schemas/Alarm'
+        nextToken:
+          type: string
+          description: Token for the next page of results
+    Alarm:
+      type: object
+      description: Represents a CloudWatch metric alarm
+      properties:
+        alarmName:
+          type: string
+          description: The name of the alarm
+        alarmArn:
+          type: string
+          description: The ARN of the alarm
+        alarmDescription:
+          type: string
+          description: The description of the alarm
+        stateValue:
+          type: string
+          description: The state value for the alarm
+          enum:
+          - OK
+          - ALARM
+          - INSUFFICIENT_DATA
+        stateReason:
+          type: string
+          description: An explanation for the alarm state
+        stateUpdatedTimestamp:
+          type: string
+          format: date-time
+          description: The time stamp of the last update to the state
+        metricName:
+          type: string
+          description: The name of the metric associated with the alarm
+        namespace:
+          type: string
+          description: The namespace of the metric associated with the alarm
+        statistic:
+          type: string
+          description: The statistic for the metric associated with the alarm
+        dimensions:
+          type: array
+          description: The dimensions for the metric associated with the alarm
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+        period:
+          type: integer
+          description: The period in seconds over which the statistic is applied
+        evaluationPeriods:
+          type: integer
+          description: The number of periods over which data is compared to the threshold
+        threshold:
+          type: number
+          description: The value to compare with the specified statistic
+        comparisonOperator:
+          type: string
+          description: The arithmetic operation to use when comparing the statistic and threshold
+        treatMissingData:
+          type: string
+          description: How missing data points are treated
+        actionsEnabled:
+          type: boolean
+          description: Whether actions are executed during alarm state changes
+        alarmActions:
+          type: array
+          description: The actions to execute when the alarm transitions to ALARM state
+          items:
+            type: string
+        okActions:
+          type: array
+          description: The actions to execute when the alarm transitions to OK state
+          items:
+            type: string
+        insufficientDataActions:
+          type: array
+          description: The actions to execute when the alarm transitions to INSUFFICIENT_DATA state
+          items:
+            type: string
+  securitySchemes:
+    sigv4Auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication
+externalDocs:
+  description: Amazon CloudWatch API Reference
+  url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/
