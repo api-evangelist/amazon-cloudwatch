@@ -1,0 +1,624 @@
+{
+  "info": {
+    "_postman_id": "9e41a5c2-728e-48d1-96ef-994417c2d1c0",
+    "name": "Amazon CloudWatch Alarms Dashboards API",
+    "description": "Amazon CloudWatch monitors your Amazon Web Services resources and the applications you run on AWS in real time. You can use CloudWatch to collect and track metrics, create alarms that send notifications, and automatically react to changes in your AWS resources. CloudWatch provides a reliable, scalable, and flexible monitoring solution for your cloud infrastructure.\n\nContact Support:\n Name: Amazon Web Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:30:37.000Z",
+    "updatedAt": "2026-07-28T00:30:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9e41a5c2-728e-48d1-96ef-994417c2d1c0"
+  },
+  "item": [
+    {
+      "name": "?Action=PutDashboard",
+      "item": [
+        {
+          "name": "Amazon CloudWatch Create or update a dashboard",
+          "id": "40ac0a9f-68de-4389-bfca-7e0177c3192d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=PutDashboard&DashboardName=<string>&DashboardBody=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "PutDashboard"
+                },
+                {
+                  "description": "(Required) The name of the dashboard",
+                  "key": "DashboardName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard",
+                  "key": "DashboardBody",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Creates a dashboard if it does not already exist, or updates an existing dashboard. If you update a dashboard, the entire contents are replaced with what you specify here. There is no limit to the number of dashboards in your account."
+          },
+          "response": [
+            {
+              "id": "9c6b625a-609c-420d-b18b-7c2a50c16d37",
+              "name": "Successfully created or updated dashboard",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DashboardName=<string>&DashboardBody=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the dashboard",
+                      "key": "DashboardName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard",
+                      "key": "DashboardBody",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <dashboardValidationMessages>\n    <dataPath>(string)</dataPath>\n    <message>(string)</message>\n  </dashboardValidationMessages>\n  <dashboardValidationMessages>\n    <dataPath>(string)</dataPath>\n    <message>(string)</message>\n  </dashboardValidationMessages>\n</element>",
+              "createdAt": "2026-07-28T00:30:37.000Z",
+              "updatedAt": "2026-07-28T00:30:37.000Z",
+              "uid": "35240-9c6b625a-609c-420d-b18b-7c2a50c16d37"
+            },
+            {
+              "id": "45dfb5c3-b577-4de9-a7f4-87b3fb037de9",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DashboardName=<string>&DashboardBody=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the dashboard",
+                      "key": "DashboardName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard",
+                      "key": "DashboardBody",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:37.000Z",
+              "updatedAt": "2026-07-28T00:30:37.000Z",
+              "uid": "35240-45dfb5c3-b577-4de9-a7f4-87b3fb037de9"
+            },
+            {
+              "id": "732c5aa5-94ce-4c69-a54b-010729cfc936",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DashboardName=<string>&DashboardBody=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the dashboard",
+                      "key": "DashboardName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard",
+                      "key": "DashboardBody",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:37.000Z",
+              "updatedAt": "2026-07-28T00:30:37.000Z",
+              "uid": "35240-732c5aa5-94ce-4c69-a54b-010729cfc936"
+            }
+          ],
+          "createdAt": "2026-07-28T00:30:37.000Z",
+          "updatedAt": "2026-07-28T00:30:37.000Z",
+          "uid": "35240-40ac0a9f-68de-4389-bfca-7e0177c3192d"
+        }
+      ],
+      "id": "04ee75e1-8e7e-4fbd-ace6-eb6f6b03554f",
+      "createdAt": "2026-07-28T00:30:37.000Z",
+      "updatedAt": "2026-07-28T00:30:37.000Z",
+      "uid": "35240-04ee75e1-8e7e-4fbd-ace6-eb6f6b03554f"
+    },
+    {
+      "name": "?Action=GetDashboard",
+      "item": [
+        {
+          "name": "Amazon CloudWatch Get a dashboard",
+          "id": "2a05435d-397f-4272-8a81-2b93d525c9f7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=GetDashboard&DashboardName=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "GetDashboard"
+                },
+                {
+                  "description": "(Required) The name of the dashboard to retrieve",
+                  "key": "DashboardName",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Displays the details of the dashboard that you specify. To copy an existing dashboard, use GetDashboard, and then use the data returned within DashboardBody as the template for the new dashboard."
+          },
+          "response": [
+            {
+              "id": "52e1e1f8-fd2f-4928-8cbd-7313086d0ec9",
+              "name": "Successfully retrieved dashboard",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DashboardName=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the dashboard to retrieve",
+                      "key": "DashboardName",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <dashboardArn>(string)</dashboardArn>\n  <dashboardBody>(string)</dashboardBody>\n  <dashboardName>(string)</dashboardName>\n</element>",
+              "createdAt": "2026-07-28T00:30:37.000Z",
+              "updatedAt": "2026-07-28T00:30:37.000Z",
+              "uid": "35240-52e1e1f8-fd2f-4928-8cbd-7313086d0ec9"
+            },
+            {
+              "id": "a1e59cf2-6763-417b-b967-d95100378fbc",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DashboardName=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the dashboard to retrieve",
+                      "key": "DashboardName",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:37.000Z",
+              "updatedAt": "2026-07-28T00:30:37.000Z",
+              "uid": "35240-a1e59cf2-6763-417b-b967-d95100378fbc"
+            },
+            {
+              "id": "67573245-6cf1-4f61-9804-f599c9b75c8c",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DashboardName=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The name of the dashboard to retrieve",
+                      "key": "DashboardName",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:37.000Z",
+              "updatedAt": "2026-07-28T00:30:37.000Z",
+              "uid": "35240-67573245-6cf1-4f61-9804-f599c9b75c8c"
+            }
+          ],
+          "createdAt": "2026-07-28T00:30:37.000Z",
+          "updatedAt": "2026-07-28T00:30:37.000Z",
+          "uid": "35240-2a05435d-397f-4272-8a81-2b93d525c9f7"
+        }
+      ],
+      "id": "b4278009-eac9-4bd9-b08b-251fe251c477",
+      "createdAt": "2026-07-28T00:30:37.000Z",
+      "updatedAt": "2026-07-28T00:30:37.000Z",
+      "uid": "35240-b4278009-eac9-4bd9-b08b-251fe251c477"
+    },
+    {
+      "name": "?Action=ListDashboards",
+      "item": [
+        {
+          "name": "Amazon CloudWatch List dashboards",
+          "id": "d7c3d8dd-2d47-4e51-bffa-cc105186282a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=ListDashboards&DashboardNamePrefix=<string>&NextToken=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "ListDashboards"
+                },
+                {
+                  "description": "Filter dashboards by name prefix",
+                  "key": "DashboardNamePrefix",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Token for the next page of results",
+                  "key": "NextToken",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns a list of the dashboards for your account. If you include DashboardNamePrefix, only those dashboards with names starting with the prefix are listed. Otherwise, all dashboards in your account are listed."
+          },
+          "response": [
+            {
+              "id": "5b8dbcb4-af02-4ccf-bc4c-9efb76bf661f",
+              "name": "Successfully listed dashboards",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DashboardNamePrefix=<string>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter dashboards by name prefix",
+                      "key": "DashboardNamePrefix",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Token for the next page of results",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <dashboardEntries>\n    <dashboardName>(string)</dashboardName>\n    <dashboardArn>(string)</dashboardArn>\n    <lastModified>(string)</lastModified>\n    <size>(integer)</size>\n  </dashboardEntries>\n  <dashboardEntries>\n    <dashboardName>(string)</dashboardName>\n    <dashboardArn>(string)</dashboardArn>\n    <lastModified>(string)</lastModified>\n    <size>(integer)</size>\n  </dashboardEntries>\n  <nextToken>(string)</nextToken>\n</element>",
+              "createdAt": "2026-07-28T00:30:37.000Z",
+              "updatedAt": "2026-07-28T00:30:37.000Z",
+              "uid": "35240-5b8dbcb4-af02-4ccf-bc4c-9efb76bf661f"
+            },
+            {
+              "id": "343d7563-819c-4e9d-babb-dbd84d8c42a8",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DashboardNamePrefix=<string>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter dashboards by name prefix",
+                      "key": "DashboardNamePrefix",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Token for the next page of results",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:37.000Z",
+              "updatedAt": "2026-07-28T00:30:37.000Z",
+              "uid": "35240-343d7563-819c-4e9d-babb-dbd84d8c42a8"
+            },
+            {
+              "id": "011ee8c7-088c-49b1-a12e-0ff242d18dae",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?DashboardNamePrefix=<string>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter dashboards by name prefix",
+                      "key": "DashboardNamePrefix",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Token for the next page of results",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:37.000Z",
+              "updatedAt": "2026-07-28T00:30:37.000Z",
+              "uid": "35240-011ee8c7-088c-49b1-a12e-0ff242d18dae"
+            }
+          ],
+          "createdAt": "2026-07-28T00:30:37.000Z",
+          "updatedAt": "2026-07-28T00:30:37.000Z",
+          "uid": "35240-d7c3d8dd-2d47-4e51-bffa-cc105186282a"
+        }
+      ],
+      "id": "e3d1f532-495d-49be-8733-62e03574d048",
+      "createdAt": "2026-07-28T00:30:37.000Z",
+      "updatedAt": "2026-07-28T00:30:37.000Z",
+      "uid": "35240-e3d1f532-495d-49be-8733-62e03574d048"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://monitoring.{{region}}.amazonaws.com"
+    }
+  ]
+}

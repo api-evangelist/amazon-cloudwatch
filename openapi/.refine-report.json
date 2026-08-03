@@ -1,0 +1,18 @@
+{
+  "provider": "amazon-cloudwatch",
+  "sources": [
+    "amazon-cloudwatch-alarms-api-openapi.yml",
+    "amazon-cloudwatch-dashboards-api-openapi.yml",
+    "amazon-cloudwatch-metrics-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-cloudwatch-alarms-api-openapi.yml",
+    "amazon-cloudwatch-dashboards-api-openapi.yml",
+    "amazon-cloudwatch-metrics-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

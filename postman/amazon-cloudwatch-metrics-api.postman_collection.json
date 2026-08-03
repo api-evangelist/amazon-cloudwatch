@@ -1,0 +1,1360 @@
+{
+  "info": {
+    "_postman_id": "ea7da285-c3ab-4171-9343-7626b775b5bb",
+    "name": "Amazon CloudWatch Alarms Metrics API",
+    "description": "Amazon CloudWatch monitors your Amazon Web Services resources and the applications you run on AWS in real time. You can use CloudWatch to collect and track metrics, create alarms that send notifications, and automatically react to changes in your AWS resources. CloudWatch provides a reliable, scalable, and flexible monitoring solution for your cloud infrastructure.\n\nContact Support:\n Name: Amazon Web Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:30:38.000Z",
+    "updatedAt": "2026-07-28T00:30:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ea7da285-c3ab-4171-9343-7626b775b5bb"
+  },
+  "item": [
+    {
+      "name": "?Action=PutMetricData",
+      "item": [
+        {
+          "name": "Amazon CloudWatch Publish metric data points",
+          "id": "c596e96f-30e4-4203-9104-30c872b359f2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=PutMetricData&Namespace=<string>&MetricData.member.1.MetricName=<string>&MetricData.member.1.Value=<number>&MetricData.member.1.Timestamp=<dateTime>&MetricData.member.1.Unit=Megabytes/Second&MetricData.member.1.Dimensions.member.1.Name=<string>&MetricData.member.1.Dimensions.member.1.Value=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "PutMetricData"
+                },
+                {
+                  "description": "(Required) The namespace for the metric data",
+                  "key": "Namespace",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The name of the metric",
+                  "key": "MetricData.member.1.MetricName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The value for the metric",
+                  "key": "MetricData.member.1.Value",
+                  "value": "<number>"
+                },
+                {
+                  "description": "The time the metric data was received",
+                  "key": "MetricData.member.1.Timestamp",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "The unit of the metric",
+                  "key": "MetricData.member.1.Unit",
+                  "value": "Megabytes/Second"
+                },
+                {
+                  "description": "The name of the dimension",
+                  "key": "MetricData.member.1.Dimensions.member.1.Name",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The value of the dimension",
+                  "key": "MetricData.member.1.Dimensions.member.1.Value",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Publishes metric data points to Amazon CloudWatch. CloudWatch associates the data points with the specified metric. If the specified metric does not exist, CloudWatch creates the metric. When CloudWatch creates a metric, it can take up to fifteen minutes for the metric to appear in calls to ListMetrics."
+          },
+          "response": [
+            {
+              "id": "ad8280c2-9d76-4f2b-a3a2-caea07eed0cc",
+              "name": "Successfully published metric data",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Namespace=<string>&MetricData.member.1.MetricName=<string>&MetricData.member.1.Value=<number>&MetricData.member.1.Timestamp=<dateTime>&MetricData.member.1.Unit=Megabytes/Second&MetricData.member.1.Dimensions.member.1.Name=<string>&MetricData.member.1.Dimensions.member.1.Value=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The namespace for the metric data",
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the metric",
+                      "key": "MetricData.member.1.MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The value for the metric",
+                      "key": "MetricData.member.1.Value",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The time the metric data was received",
+                      "key": "MetricData.member.1.Timestamp",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The unit of the metric",
+                      "key": "MetricData.member.1.Unit",
+                      "value": "Megabytes/Second"
+                    },
+                    {
+                      "description": "The name of the dimension",
+                      "key": "MetricData.member.1.Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The value of the dimension",
+                      "key": "MetricData.member.1.Dimensions.member.1.Value",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:38.000Z",
+              "updatedAt": "2026-07-28T00:30:38.000Z",
+              "uid": "35240-ad8280c2-9d76-4f2b-a3a2-caea07eed0cc"
+            },
+            {
+              "id": "468ef005-39f5-4672-80ca-ace5d8a0f1e6",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Namespace=<string>&MetricData.member.1.MetricName=<string>&MetricData.member.1.Value=<number>&MetricData.member.1.Timestamp=<dateTime>&MetricData.member.1.Unit=Megabytes/Second&MetricData.member.1.Dimensions.member.1.Name=<string>&MetricData.member.1.Dimensions.member.1.Value=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The namespace for the metric data",
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the metric",
+                      "key": "MetricData.member.1.MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The value for the metric",
+                      "key": "MetricData.member.1.Value",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The time the metric data was received",
+                      "key": "MetricData.member.1.Timestamp",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The unit of the metric",
+                      "key": "MetricData.member.1.Unit",
+                      "value": "Megabytes/Second"
+                    },
+                    {
+                      "description": "The name of the dimension",
+                      "key": "MetricData.member.1.Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The value of the dimension",
+                      "key": "MetricData.member.1.Dimensions.member.1.Value",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:38.000Z",
+              "updatedAt": "2026-07-28T00:30:38.000Z",
+              "uid": "35240-468ef005-39f5-4672-80ca-ace5d8a0f1e6"
+            },
+            {
+              "id": "11551cc5-1fc8-4a90-8818-44d0fef771c5",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Namespace=<string>&MetricData.member.1.MetricName=<string>&MetricData.member.1.Value=<number>&MetricData.member.1.Timestamp=<dateTime>&MetricData.member.1.Unit=Megabytes/Second&MetricData.member.1.Dimensions.member.1.Name=<string>&MetricData.member.1.Dimensions.member.1.Value=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The namespace for the metric data",
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the metric",
+                      "key": "MetricData.member.1.MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The value for the metric",
+                      "key": "MetricData.member.1.Value",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The time the metric data was received",
+                      "key": "MetricData.member.1.Timestamp",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The unit of the metric",
+                      "key": "MetricData.member.1.Unit",
+                      "value": "Megabytes/Second"
+                    },
+                    {
+                      "description": "The name of the dimension",
+                      "key": "MetricData.member.1.Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The value of the dimension",
+                      "key": "MetricData.member.1.Dimensions.member.1.Value",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:38.000Z",
+              "updatedAt": "2026-07-28T00:30:38.000Z",
+              "uid": "35240-11551cc5-1fc8-4a90-8818-44d0fef771c5"
+            },
+            {
+              "id": "f354f6cf-6d88-4acf-b063-e3c45b89b009",
+              "name": "Authorization failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Namespace=<string>&MetricData.member.1.MetricName=<string>&MetricData.member.1.Value=<number>&MetricData.member.1.Timestamp=<dateTime>&MetricData.member.1.Unit=Megabytes/Second&MetricData.member.1.Dimensions.member.1.Name=<string>&MetricData.member.1.Dimensions.member.1.Value=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The namespace for the metric data",
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the metric",
+                      "key": "MetricData.member.1.MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The value for the metric",
+                      "key": "MetricData.member.1.Value",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The time the metric data was received",
+                      "key": "MetricData.member.1.Timestamp",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The unit of the metric",
+                      "key": "MetricData.member.1.Unit",
+                      "value": "Megabytes/Second"
+                    },
+                    {
+                      "description": "The name of the dimension",
+                      "key": "MetricData.member.1.Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The value of the dimension",
+                      "key": "MetricData.member.1.Dimensions.member.1.Value",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:38.000Z",
+              "updatedAt": "2026-07-28T00:30:38.000Z",
+              "uid": "35240-f354f6cf-6d88-4acf-b063-e3c45b89b009"
+            }
+          ],
+          "createdAt": "2026-07-28T00:30:38.000Z",
+          "updatedAt": "2026-07-28T00:30:38.000Z",
+          "uid": "35240-c596e96f-30e4-4203-9104-30c872b359f2"
+        }
+      ],
+      "id": "0546db06-44d6-4cd2-828e-86c2fc037d83",
+      "createdAt": "2026-07-28T00:30:38.000Z",
+      "updatedAt": "2026-07-28T00:30:38.000Z",
+      "uid": "35240-0546db06-44d6-4cd2-828e-86c2fc037d83"
+    },
+    {
+      "name": "?Action=GetMetricData",
+      "item": [
+        {
+          "name": "Amazon CloudWatch Retrieve metric data",
+          "id": "8c88bad2-6233-4b71-932a-97baf3e93e9e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=GetMetricData&StartTime=<dateTime>&EndTime=<dateTime>&MetricDataQueries.member.1.Id=<string>&MetricDataQueries.member.1.MetricStat.Metric.Namespace=<string>&MetricDataQueries.member.1.MetricStat.Metric.MetricName=<string>&MetricDataQueries.member.1.MetricStat.Period=<integer>&MetricDataQueries.member.1.MetricStat.Stat=<string>&MaxDatapoints=<integer>&NextToken=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "GetMetricData"
+                },
+                {
+                  "description": "(Required) The start of the time range to retrieve metric data",
+                  "key": "StartTime",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "(Required) The end of the time range to retrieve metric data",
+                  "key": "EndTime",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "(Required) A short name to identify the query",
+                  "key": "MetricDataQueries.member.1.Id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The namespace of the metric",
+                  "key": "MetricDataQueries.member.1.MetricStat.Metric.Namespace",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The name of the metric",
+                  "key": "MetricDataQueries.member.1.MetricStat.Metric.MetricName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The granularity in seconds of the returned data points",
+                  "key": "MetricDataQueries.member.1.MetricStat.Period",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The statistic to return (e.g., Average, Sum, Maximum)",
+                  "key": "MetricDataQueries.member.1.MetricStat.Stat",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The maximum number of data points to return",
+                  "key": "MaxDatapoints",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Token for the next page of results",
+                  "key": "NextToken",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Retrieves CloudWatch metric values. You can use GetMetricData to retrieve as many as 500 different metrics in a single request, with a total of as many as 100,800 data points."
+          },
+          "response": [
+            {
+              "id": "a5f9ddf5-dce6-4410-b5b5-baad623b9cb0",
+              "name": "Successfully retrieved metric data",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?StartTime=<dateTime>&EndTime=<dateTime>&MetricDataQueries.member.1.Id=<string>&MetricDataQueries.member.1.MetricStat.Metric.Namespace=<string>&MetricDataQueries.member.1.MetricStat.Metric.MetricName=<string>&MetricDataQueries.member.1.MetricStat.Period=<integer>&MetricDataQueries.member.1.MetricStat.Stat=<string>&MaxDatapoints=<integer>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The start of the time range to retrieve metric data",
+                      "key": "StartTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) The end of the time range to retrieve metric data",
+                      "key": "EndTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) A short name to identify the query",
+                      "key": "MetricDataQueries.member.1.Id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The namespace of the metric",
+                      "key": "MetricDataQueries.member.1.MetricStat.Metric.Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the metric",
+                      "key": "MetricDataQueries.member.1.MetricStat.Metric.MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The granularity in seconds of the returned data points",
+                      "key": "MetricDataQueries.member.1.MetricStat.Period",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The statistic to return (e.g., Average, Sum, Maximum)",
+                      "key": "MetricDataQueries.member.1.MetricStat.Stat",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of data points to return",
+                      "key": "MaxDatapoints",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Token for the next page of results",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <metricDataResults>\n    <id>(string)</id>\n    <label>(string)</label>\n    <timestamps>(string)</timestamps>\n    <timestamps>(string)</timestamps>\n    <values>(number)</values>\n    <values>(number)</values>\n    <statusCode>(string)</statusCode>\n  </metricDataResults>\n  <metricDataResults>\n    <id>(string)</id>\n    <label>(string)</label>\n    <timestamps>(string)</timestamps>\n    <timestamps>(string)</timestamps>\n    <values>(number)</values>\n    <values>(number)</values>\n    <statusCode>(string)</statusCode>\n  </metricDataResults>\n  <nextToken>(string)</nextToken>\n</element>",
+              "createdAt": "2026-07-28T00:30:38.000Z",
+              "updatedAt": "2026-07-28T00:30:38.000Z",
+              "uid": "35240-a5f9ddf5-dce6-4410-b5b5-baad623b9cb0"
+            },
+            {
+              "id": "dcdec313-6e0a-4fc0-a5c1-f6171bcf0104",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?StartTime=<dateTime>&EndTime=<dateTime>&MetricDataQueries.member.1.Id=<string>&MetricDataQueries.member.1.MetricStat.Metric.Namespace=<string>&MetricDataQueries.member.1.MetricStat.Metric.MetricName=<string>&MetricDataQueries.member.1.MetricStat.Period=<integer>&MetricDataQueries.member.1.MetricStat.Stat=<string>&MaxDatapoints=<integer>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The start of the time range to retrieve metric data",
+                      "key": "StartTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) The end of the time range to retrieve metric data",
+                      "key": "EndTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) A short name to identify the query",
+                      "key": "MetricDataQueries.member.1.Id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The namespace of the metric",
+                      "key": "MetricDataQueries.member.1.MetricStat.Metric.Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the metric",
+                      "key": "MetricDataQueries.member.1.MetricStat.Metric.MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The granularity in seconds of the returned data points",
+                      "key": "MetricDataQueries.member.1.MetricStat.Period",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The statistic to return (e.g., Average, Sum, Maximum)",
+                      "key": "MetricDataQueries.member.1.MetricStat.Stat",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of data points to return",
+                      "key": "MaxDatapoints",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Token for the next page of results",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:38.000Z",
+              "updatedAt": "2026-07-28T00:30:38.000Z",
+              "uid": "35240-dcdec313-6e0a-4fc0-a5c1-f6171bcf0104"
+            },
+            {
+              "id": "b1a7cafd-ddd4-477c-a5db-7c0598c35b55",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?StartTime=<dateTime>&EndTime=<dateTime>&MetricDataQueries.member.1.Id=<string>&MetricDataQueries.member.1.MetricStat.Metric.Namespace=<string>&MetricDataQueries.member.1.MetricStat.Metric.MetricName=<string>&MetricDataQueries.member.1.MetricStat.Period=<integer>&MetricDataQueries.member.1.MetricStat.Stat=<string>&MaxDatapoints=<integer>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The start of the time range to retrieve metric data",
+                      "key": "StartTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) The end of the time range to retrieve metric data",
+                      "key": "EndTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) A short name to identify the query",
+                      "key": "MetricDataQueries.member.1.Id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The namespace of the metric",
+                      "key": "MetricDataQueries.member.1.MetricStat.Metric.Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the metric",
+                      "key": "MetricDataQueries.member.1.MetricStat.Metric.MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The granularity in seconds of the returned data points",
+                      "key": "MetricDataQueries.member.1.MetricStat.Period",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The statistic to return (e.g., Average, Sum, Maximum)",
+                      "key": "MetricDataQueries.member.1.MetricStat.Stat",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of data points to return",
+                      "key": "MaxDatapoints",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Token for the next page of results",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:38.000Z",
+              "updatedAt": "2026-07-28T00:30:38.000Z",
+              "uid": "35240-b1a7cafd-ddd4-477c-a5db-7c0598c35b55"
+            }
+          ],
+          "createdAt": "2026-07-28T00:30:38.000Z",
+          "updatedAt": "2026-07-28T00:30:38.000Z",
+          "uid": "35240-8c88bad2-6233-4b71-932a-97baf3e93e9e"
+        }
+      ],
+      "id": "cb0bc8a1-200d-4d15-930b-499fd8bda0fd",
+      "createdAt": "2026-07-28T00:30:38.000Z",
+      "updatedAt": "2026-07-28T00:30:38.000Z",
+      "uid": "35240-cb0bc8a1-200d-4d15-930b-499fd8bda0fd"
+    },
+    {
+      "name": "?Action=GetMetricStatistics",
+      "item": [
+        {
+          "name": "Amazon CloudWatch Get statistics for a metric",
+          "id": "7c30ed4d-e316-449f-a6d9-2992d2f23092",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=GetMetricStatistics&Namespace=<string>&MetricName=<string>&StartTime=<dateTime>&EndTime=<dateTime>&Period=<integer>&Statistics.member.1=Maximum&Dimensions.member.1.Name=<string>&Dimensions.member.1.Value=<string>&Unit=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "GetMetricStatistics"
+                },
+                {
+                  "description": "(Required) The namespace of the metric",
+                  "key": "Namespace",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The name of the metric",
+                  "key": "MetricName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The start of the time range for the data points",
+                  "key": "StartTime",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "(Required) The end of the time range for the data points",
+                  "key": "EndTime",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "(Required) The granularity in seconds of the returned data points",
+                  "key": "Period",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The metric statistic to return",
+                  "key": "Statistics.member.1",
+                  "value": "Maximum"
+                },
+                {
+                  "description": "The name of the dimension",
+                  "key": "Dimensions.member.1.Name",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The value of the dimension",
+                  "key": "Dimensions.member.1.Value",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The unit for the metric",
+                  "key": "Unit",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Gets statistics for the specified metric. The maximum number of data points returned from a single call is 1,440. CloudWatch retains metric data as follows: data points with a period of less than 60 seconds are available for 3 hours, 60-second data points for 15 days, 5-minute data points for 63 days, and 1-hour data points for 455 days."
+          },
+          "response": [
+            {
+              "id": "a7f56c07-7fd5-452b-86f4-d66e37f82113",
+              "name": "Successfully retrieved metric statistics",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Namespace=<string>&MetricName=<string>&StartTime=<dateTime>&EndTime=<dateTime>&Period=<integer>&Statistics.member.1=Maximum&Dimensions.member.1.Name=<string>&Dimensions.member.1.Value=<string>&Unit=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The namespace of the metric",
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the metric",
+                      "key": "MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The start of the time range for the data points",
+                      "key": "StartTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) The end of the time range for the data points",
+                      "key": "EndTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) The granularity in seconds of the returned data points",
+                      "key": "Period",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The metric statistic to return",
+                      "key": "Statistics.member.1",
+                      "value": "Maximum"
+                    },
+                    {
+                      "description": "The name of the dimension",
+                      "key": "Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The value of the dimension",
+                      "key": "Dimensions.member.1.Value",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The unit for the metric",
+                      "key": "Unit",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <label>(string)</label>\n  <datapoints>\n    <timestamp>(string)</timestamp>\n    <sampleCount>(number)</sampleCount>\n    <average>(number)</average>\n    <sum>(number)</sum>\n    <minimum>(number)</minimum>\n    <maximum>(number)</maximum>\n    <unit>(string)</unit>\n  </datapoints>\n  <datapoints>\n    <timestamp>(string)</timestamp>\n    <sampleCount>(number)</sampleCount>\n    <average>(number)</average>\n    <sum>(number)</sum>\n    <minimum>(number)</minimum>\n    <maximum>(number)</maximum>\n    <unit>(string)</unit>\n  </datapoints>\n</element>",
+              "createdAt": "2026-07-28T00:30:38.000Z",
+              "updatedAt": "2026-07-28T00:30:38.000Z",
+              "uid": "35240-a7f56c07-7fd5-452b-86f4-d66e37f82113"
+            },
+            {
+              "id": "d3822b40-7853-4bb5-8092-21726d0a3195",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Namespace=<string>&MetricName=<string>&StartTime=<dateTime>&EndTime=<dateTime>&Period=<integer>&Statistics.member.1=Maximum&Dimensions.member.1.Name=<string>&Dimensions.member.1.Value=<string>&Unit=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The namespace of the metric",
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the metric",
+                      "key": "MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The start of the time range for the data points",
+                      "key": "StartTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) The end of the time range for the data points",
+                      "key": "EndTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) The granularity in seconds of the returned data points",
+                      "key": "Period",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The metric statistic to return",
+                      "key": "Statistics.member.1",
+                      "value": "Maximum"
+                    },
+                    {
+                      "description": "The name of the dimension",
+                      "key": "Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The value of the dimension",
+                      "key": "Dimensions.member.1.Value",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The unit for the metric",
+                      "key": "Unit",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:38.000Z",
+              "updatedAt": "2026-07-28T00:30:38.000Z",
+              "uid": "35240-d3822b40-7853-4bb5-8092-21726d0a3195"
+            },
+            {
+              "id": "5b9400bc-9c4a-45dc-9570-4e50455439ff",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Namespace=<string>&MetricName=<string>&StartTime=<dateTime>&EndTime=<dateTime>&Period=<integer>&Statistics.member.1=Maximum&Dimensions.member.1.Name=<string>&Dimensions.member.1.Value=<string>&Unit=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The namespace of the metric",
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the metric",
+                      "key": "MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The start of the time range for the data points",
+                      "key": "StartTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) The end of the time range for the data points",
+                      "key": "EndTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "(Required) The granularity in seconds of the returned data points",
+                      "key": "Period",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The metric statistic to return",
+                      "key": "Statistics.member.1",
+                      "value": "Maximum"
+                    },
+                    {
+                      "description": "The name of the dimension",
+                      "key": "Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The value of the dimension",
+                      "key": "Dimensions.member.1.Value",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The unit for the metric",
+                      "key": "Unit",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:38.000Z",
+              "updatedAt": "2026-07-28T00:30:38.000Z",
+              "uid": "35240-5b9400bc-9c4a-45dc-9570-4e50455439ff"
+            }
+          ],
+          "createdAt": "2026-07-28T00:30:38.000Z",
+          "updatedAt": "2026-07-28T00:30:38.000Z",
+          "uid": "35240-7c30ed4d-e316-449f-a6d9-2992d2f23092"
+        }
+      ],
+      "id": "46cc264b-803a-48a5-a3e2-42b35ea49c96",
+      "createdAt": "2026-07-28T00:30:38.000Z",
+      "updatedAt": "2026-07-28T00:30:38.000Z",
+      "uid": "35240-46cc264b-803a-48a5-a3e2-42b35ea49c96"
+    },
+    {
+      "name": "?Action=ListMetrics",
+      "item": [
+        {
+          "name": "Amazon CloudWatch List available metrics",
+          "id": "0063a037-797a-46ed-a386-39b646d27874",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=ListMetrics&Namespace=<string>&MetricName=<string>&Dimensions.member.1.Name=<string>&Dimensions.member.1.Value=<string>&NextToken=<string>&RecentlyActive=PT3H",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "ListMetrics"
+                },
+                {
+                  "description": "Filter by namespace",
+                  "key": "Namespace",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by metric name",
+                  "key": "MetricName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The name of the dimension to filter by",
+                  "key": "Dimensions.member.1.Name",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The value of the dimension to filter by",
+                  "key": "Dimensions.member.1.Value",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Token for the next page of results",
+                  "key": "NextToken",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter to metrics that have had data points published in the past three hours",
+                  "key": "RecentlyActive",
+                  "value": "PT3H"
+                }
+              ]
+            },
+            "description": "List the specified metrics. You can use the returned metrics with GetMetricData or GetMetricStatistics to get statistical data. Up to 500 results are returned for any one call."
+          },
+          "response": [
+            {
+              "id": "0ee4a2da-f151-4734-859e-83399bb607a4",
+              "name": "Successfully listed metrics",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Namespace=<string>&MetricName=<string>&Dimensions.member.1.Name=<string>&Dimensions.member.1.Value=<string>&NextToken=<string>&RecentlyActive=PT3H",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by namespace",
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by metric name",
+                      "key": "MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the dimension to filter by",
+                      "key": "Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The value of the dimension to filter by",
+                      "key": "Dimensions.member.1.Value",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Token for the next page of results",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter to metrics that have had data points published in the past three hours",
+                      "key": "RecentlyActive",
+                      "value": "PT3H"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <metrics>\n    <namespace>(string)</namespace>\n    <metricName>(string)</metricName>\n    <dimensions>\n      <name>(string)</name>\n      <value>(string)</value>\n    </dimensions>\n    <dimensions>\n      <name>(string)</name>\n      <value>(string)</value>\n    </dimensions>\n  </metrics>\n  <metrics>\n    <namespace>(string)</namespace>\n    <metricName>(string)</metricName>\n    <dimensions>\n      <name>(string)</name>\n      <value>(string)</value>\n    </dimensions>\n    <dimensions>\n      <name>(string)</name>\n      <value>(string)</value>\n    </dimensions>\n  </metrics>\n  <nextToken>(string)</nextToken>\n</element>",
+              "createdAt": "2026-07-28T00:30:38.000Z",
+              "updatedAt": "2026-07-28T00:30:38.000Z",
+              "uid": "35240-0ee4a2da-f151-4734-859e-83399bb607a4"
+            },
+            {
+              "id": "cc07b91a-044b-48b5-b4a6-2063881e70cc",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Namespace=<string>&MetricName=<string>&Dimensions.member.1.Name=<string>&Dimensions.member.1.Value=<string>&NextToken=<string>&RecentlyActive=PT3H",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by namespace",
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by metric name",
+                      "key": "MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the dimension to filter by",
+                      "key": "Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The value of the dimension to filter by",
+                      "key": "Dimensions.member.1.Value",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Token for the next page of results",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter to metrics that have had data points published in the past three hours",
+                      "key": "RecentlyActive",
+                      "value": "PT3H"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:38.000Z",
+              "updatedAt": "2026-07-28T00:30:38.000Z",
+              "uid": "35240-cc07b91a-044b-48b5-b4a6-2063881e70cc"
+            },
+            {
+              "id": "4f7c823c-606a-47e6-931e-f3966d7f8e73",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Namespace=<string>&MetricName=<string>&Dimensions.member.1.Name=<string>&Dimensions.member.1.Value=<string>&NextToken=<string>&RecentlyActive=PT3H",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by namespace",
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by metric name",
+                      "key": "MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the dimension to filter by",
+                      "key": "Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The value of the dimension to filter by",
+                      "key": "Dimensions.member.1.Value",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Token for the next page of results",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter to metrics that have had data points published in the past three hours",
+                      "key": "RecentlyActive",
+                      "value": "PT3H"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:38.000Z",
+              "updatedAt": "2026-07-28T00:30:38.000Z",
+              "uid": "35240-4f7c823c-606a-47e6-931e-f3966d7f8e73"
+            }
+          ],
+          "createdAt": "2026-07-28T00:30:38.000Z",
+          "updatedAt": "2026-07-28T00:30:38.000Z",
+          "uid": "35240-0063a037-797a-46ed-a386-39b646d27874"
+        }
+      ],
+      "id": "0ffd0183-4f41-4bbe-b1fc-ebb04c5e1021",
+      "createdAt": "2026-07-28T00:30:38.000Z",
+      "updatedAt": "2026-07-28T00:30:38.000Z",
+      "uid": "35240-0ffd0183-4f41-4bbe-b1fc-ebb04c5e1021"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://monitoring.{{region}}.amazonaws.com"
+    }
+  ]
+}
