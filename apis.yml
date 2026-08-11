@@ -144,6 +144,10 @@ apis:
   - type: Lifecycle
     url: lifecycle/amazon-cloudwatch-lifecycle.yml
 common:
+- type: MCPServer
+  url: mcp/amazon-cloudwatch-mcp.yml
+- type: Overlay
+  url: overlays/amazon-cloudwatch-openapi-overlay.yaml
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-cloudwatch/overview
 - type: AgenticAccess
