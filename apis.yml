@@ -1,6 +1,5 @@
 aid: amazon-cloudwatch
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/amazon-cloudwatch/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/amazon-cloudwatch/refs/heads/main/apis.yml
 name: Amazon CloudWatch
 type: Index
 accessModel:
@@ -12,244 +11,243 @@ accessModel:
   label: Self-serve signup
   confidence: medium
   source:
-  - authentication
+    - authentication
   generated: '2026-07-22'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-cloudwatch.png
 specificationVersion: '0.19'
 description: >-
-  Amazon CloudWatch is an intelligent observability platform providing complete visibility into performance, availability, and security across your entire technology stack. Monitor applications, infrastructure,
-  and workloads with unified metrics, logs, and traces plus AI-powered insights.
+  Amazon CloudWatch is an intelligent observability platform providing complete visibility into performance,
+  availability, and security across your entire technology stack. Monitor applications, infrastructure, and workloads
+  with unified metrics, logs, and traces plus AI-powered insights.
 created: '2024-01-15'
 modified: '2026-06-20'
 apis:
-- aid: amazon-cloudwatch:amazon-cloudwatch-alarms-api
-  name: Amazon CloudWatch Alarms API
-  description: Operations for creating, describing, and deleting metric alarms
-  humanURL: https://aws.amazon.com/cloudwatch/
-  baseURL: https://monitoring.us-east-1.amazonaws.com
-  tags:
-  - Alarms
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-cloudwatch-alarms-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/
-  - type: GettingStarted
-    url: https://aws.amazon.com/cloudwatch/getting-started/
-  - type: Pricing
-    url: https://aws.amazon.com/cloudwatch/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/cloudwatch/faqs/
-  - type: APIReference
-    url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/
-  - type: CLI
-    url: https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/
-  - type: JSONSchema
-    url: json-schema/cloudwatch-get-metric-data-response-schema.json
-  - type: JSONSchema
-    url: json-schema/cloudwatch-get-metric-statistics-response-schema.json
-  - type: JSONSchema
-    url: json-schema/cloudwatch-list-metrics-response-schema.json
-  - type: JSONSchema
-    url: json-schema/cloudwatch-describe-alarms-response-schema.json
-  - type: JSONSchema
-    url: json-schema/cloudwatch-put-dashboard-response-schema.json
-  - type: JSONLD
-    url: json-ld/amazon-cloudwatch-context.jsonld
-  - type: Conformance
-    url: conformance/amazon-cloudwatch-conformance.yml
-  - type: ErrorCatalog
-    url: errors/amazon-cloudwatch-problem-types.yml
-  - type: Lifecycle
-    url: lifecycle/amazon-cloudwatch-lifecycle.yml
-- aid: amazon-cloudwatch:amazon-cloudwatch-dashboards-api
-  name: Amazon CloudWatch Dashboards API
-  description: Operations for creating, retrieving, and listing CloudWatch dashboards
-  humanURL: https://aws.amazon.com/cloudwatch/
-  baseURL: https://monitoring.us-east-1.amazonaws.com
-  tags:
-  - Dashboards
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-cloudwatch-dashboards-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/
-  - type: GettingStarted
-    url: https://aws.amazon.com/cloudwatch/getting-started/
-  - type: Pricing
-    url: https://aws.amazon.com/cloudwatch/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/cloudwatch/faqs/
-  - type: APIReference
-    url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/
-  - type: CLI
-    url: https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/
-  - type: JSONSchema
-    url: json-schema/cloudwatch-get-metric-data-response-schema.json
-  - type: JSONSchema
-    url: json-schema/cloudwatch-get-metric-statistics-response-schema.json
-  - type: JSONSchema
-    url: json-schema/cloudwatch-list-metrics-response-schema.json
-  - type: JSONSchema
-    url: json-schema/cloudwatch-describe-alarms-response-schema.json
-  - type: JSONSchema
-    url: json-schema/cloudwatch-put-dashboard-response-schema.json
-  - type: JSONLD
-    url: json-ld/amazon-cloudwatch-context.jsonld
-  - type: Conformance
-    url: conformance/amazon-cloudwatch-conformance.yml
-  - type: ErrorCatalog
-    url: errors/amazon-cloudwatch-problem-types.yml
-  - type: Lifecycle
-    url: lifecycle/amazon-cloudwatch-lifecycle.yml
-- aid: amazon-cloudwatch:amazon-cloudwatch-metrics-api
-  name: Amazon CloudWatch Metrics API
-  description: Operations for publishing, retrieving, and listing CloudWatch metrics
-  humanURL: https://aws.amazon.com/cloudwatch/
-  baseURL: https://monitoring.us-east-1.amazonaws.com
-  tags:
-  - Metrics
-  properties:
-  - type: OpenAPI
-    url: openapi/amazon-cloudwatch-metrics-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/
-  - type: GettingStarted
-    url: https://aws.amazon.com/cloudwatch/getting-started/
-  - type: Pricing
-    url: https://aws.amazon.com/cloudwatch/pricing/
-  - type: FAQ
-    url: https://aws.amazon.com/cloudwatch/faqs/
-  - type: APIReference
-    url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/
-  - type: CLI
-    url: https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/
-  - type: JSONSchema
-    url: json-schema/cloudwatch-get-metric-data-response-schema.json
-  - type: JSONSchema
-    url: json-schema/cloudwatch-get-metric-statistics-response-schema.json
-  - type: JSONSchema
-    url: json-schema/cloudwatch-list-metrics-response-schema.json
-  - type: JSONSchema
-    url: json-schema/cloudwatch-describe-alarms-response-schema.json
-  - type: JSONSchema
-    url: json-schema/cloudwatch-put-dashboard-response-schema.json
-  - type: JSONLD
-    url: json-ld/amazon-cloudwatch-context.jsonld
-  - type: Conformance
-    url: conformance/amazon-cloudwatch-conformance.yml
-  - type: ErrorCatalog
-    url: errors/amazon-cloudwatch-problem-types.yml
-  - type: Lifecycle
-    url: lifecycle/amazon-cloudwatch-lifecycle.yml
+  - aid: amazon-cloudwatch:amazon-cloudwatch-alarms-api
+    name: Amazon CloudWatch Alarms API
+    description: Operations for creating, describing, and deleting metric alarms
+    humanURL: https://aws.amazon.com/cloudwatch/
+    baseURL: https://monitoring.us-east-1.amazonaws.com
+    tags:
+      - Alarms
+    properties:
+      - type: OpenAPI
+        url: openapi/amazon-cloudwatch-alarms-api-openapi.yml
+      - type: Documentation
+        url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/
+      - type: GettingStarted
+        url: https://aws.amazon.com/cloudwatch/getting-started/
+      - type: Pricing
+        url: https://aws.amazon.com/cloudwatch/pricing/
+      - type: FAQ
+        url: https://aws.amazon.com/cloudwatch/faqs/
+      - type: APIReference
+        url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/
+      - type: CLI
+        url: https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/
+      - type: JSONSchema
+        url: json-schema/cloudwatch-get-metric-data-response-schema.json
+      - type: JSONSchema
+        url: json-schema/cloudwatch-get-metric-statistics-response-schema.json
+      - type: JSONSchema
+        url: json-schema/cloudwatch-list-metrics-response-schema.json
+      - type: JSONSchema
+        url: json-schema/cloudwatch-describe-alarms-response-schema.json
+      - type: JSONSchema
+        url: json-schema/cloudwatch-put-dashboard-response-schema.json
+      - type: JSONLD
+        url: json-ld/amazon-cloudwatch-context.jsonld
+      - type: Conformance
+        url: conformance/amazon-cloudwatch-conformance.yml
+      - type: ErrorCatalog
+        url: errors/amazon-cloudwatch-problem-types.yml
+      - type: Lifecycle
+        url: lifecycle/amazon-cloudwatch-lifecycle.yml
+  - aid: amazon-cloudwatch:amazon-cloudwatch-dashboards-api
+    name: Amazon CloudWatch Dashboards API
+    description: Operations for creating, retrieving, and listing CloudWatch dashboards
+    humanURL: https://aws.amazon.com/cloudwatch/
+    baseURL: https://monitoring.us-east-1.amazonaws.com
+    tags:
+      - Dashboards
+    properties:
+      - type: OpenAPI
+        url: openapi/amazon-cloudwatch-dashboards-api-openapi.yml
+      - type: Documentation
+        url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/
+      - type: GettingStarted
+        url: https://aws.amazon.com/cloudwatch/getting-started/
+      - type: Pricing
+        url: https://aws.amazon.com/cloudwatch/pricing/
+      - type: FAQ
+        url: https://aws.amazon.com/cloudwatch/faqs/
+      - type: APIReference
+        url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/
+      - type: CLI
+        url: https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/
+      - type: JSONSchema
+        url: json-schema/cloudwatch-get-metric-data-response-schema.json
+      - type: JSONSchema
+        url: json-schema/cloudwatch-get-metric-statistics-response-schema.json
+      - type: JSONSchema
+        url: json-schema/cloudwatch-list-metrics-response-schema.json
+      - type: JSONSchema
+        url: json-schema/cloudwatch-describe-alarms-response-schema.json
+      - type: JSONSchema
+        url: json-schema/cloudwatch-put-dashboard-response-schema.json
+      - type: JSONLD
+        url: json-ld/amazon-cloudwatch-context.jsonld
+      - type: Conformance
+        url: conformance/amazon-cloudwatch-conformance.yml
+      - type: ErrorCatalog
+        url: errors/amazon-cloudwatch-problem-types.yml
+      - type: Lifecycle
+        url: lifecycle/amazon-cloudwatch-lifecycle.yml
+  - aid: amazon-cloudwatch:amazon-cloudwatch-metrics-api
+    name: Amazon CloudWatch Metrics API
+    description: Operations for publishing, retrieving, and listing CloudWatch metrics
+    humanURL: https://aws.amazon.com/cloudwatch/
+    baseURL: https://monitoring.us-east-1.amazonaws.com
+    tags:
+      - Metrics
+    properties:
+      - type: OpenAPI
+        url: openapi/amazon-cloudwatch-metrics-api-openapi.yml
+      - type: Documentation
+        url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/
+      - type: GettingStarted
+        url: https://aws.amazon.com/cloudwatch/getting-started/
+      - type: Pricing
+        url: https://aws.amazon.com/cloudwatch/pricing/
+      - type: FAQ
+        url: https://aws.amazon.com/cloudwatch/faqs/
+      - type: APIReference
+        url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/
+      - type: CLI
+        url: https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/
+      - type: JSONSchema
+        url: json-schema/cloudwatch-get-metric-data-response-schema.json
+      - type: JSONSchema
+        url: json-schema/cloudwatch-get-metric-statistics-response-schema.json
+      - type: JSONSchema
+        url: json-schema/cloudwatch-list-metrics-response-schema.json
+      - type: JSONSchema
+        url: json-schema/cloudwatch-describe-alarms-response-schema.json
+      - type: JSONSchema
+        url: json-schema/cloudwatch-put-dashboard-response-schema.json
+      - type: JSONLD
+        url: json-ld/amazon-cloudwatch-context.jsonld
+      - type: Conformance
+        url: conformance/amazon-cloudwatch-conformance.yml
+      - type: ErrorCatalog
+        url: errors/amazon-cloudwatch-problem-types.yml
+      - type: Lifecycle
+        url: lifecycle/amazon-cloudwatch-lifecycle.yml
 common:
-- type: MCPServer
-  url: mcp/amazon-cloudwatch-mcp.yml
-- type: Overlay
-  url: overlays/amazon-cloudwatch-openapi-overlay.yaml
-- type: PostmanWorkspace
-  url: https://www.postman.com/kinlaneapi/amazon-cloudwatch/overview
-- type: AgenticAccess
-  url: agentic-access/amazon-cloudwatch-agentic-access.yml
-- type: TrustCenter
-  url: security/amazon-cloudwatch-trust-center.yml
-- type: VulnerabilityDisclosure
-  url: security/amazon-cloudwatch-vulnerability-disclosure.yml
-- type: DomainSecurity
-  url: security/amazon-cloudwatch-domain-security.yml
-- type: Authentication
-  url: authentication/amazon-cloudwatch-authentication.yml
-- type: Portal
-  url: https://aws.amazon.com/
-- type: Website
-  url: https://aws.amazon.com/cloudwatch/
-- type: Documentation
-  url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/
-- type: TermsOfService
-  url: https://aws.amazon.com/service-terms/
-- type: PrivacyPolicy
-  url: https://aws.amazon.com/privacy/
-- type: Support
-  url: https://aws.amazon.com/premiumsupport/
-- type: Blog
-  url: https://aws.amazon.com/blogs/mt/
-- type: BlogRSS
-  url: https://aws.amazon.com/blogs/mt/tag/amazon-cloudwatch/feed/
-- type: GitHubOrganization
-  url: https://github.com/aws
-- type: Console
-  url: https://console.aws.amazon.com/cloudwatch/
-- type: SignUp
-  url: https://signin.aws.amazon.com/signup?request_type=register
-- type: StatusPage
-  url: https://health.aws.amazon.com/health/status
-- type: YouTube
-  url: https://www.youtube.com/user/AmazonWebServices
-- type: StackOverflow
-  url: https://stackoverflow.com/questions/tagged/amazon-cloudwatch
-- type: Contact
-  url: https://aws.amazon.com/contact-us/
-- type: Compliance
-  url: https://aws.amazon.com/compliance/
-- type: SpectralRules
-  url: rules/amazon-cloudwatch-spectral-rules.yml
-- type: Vocabulary
-  url: vocabulary/amazon-cloudwatch-vocabulary.yaml
-- type: NaftikoCapability
-  url: capabilities/observability.yaml
-- type: Packages
-  url: packages/amazon-cloudwatch-packages.yml
-- type: WellKnown
-  url: well-known/amazon-cloudwatch-well-known.yml
-- type: SecurityTxt
-  url: well-known/amazon-cloudwatch-security.txt
-- type: LLMsTxt
-  url: llms/amazon-cloudwatch-llms.txt
-- type: Features
-  data:
-  - name: Unified Observability
-    description: Monitor metrics, logs, and traces in one interface for complete system visibility.
-  - name: AI-Powered Insights
-    description: Detect anomalies and investigate issues using AI-powered CloudWatch Investigations.
-  - name: Dashboards
-    description: Create custom dashboards with pre-built and customizable metric visualizations.
-  - name: Alarms
-    description: Set threshold-based alarms on any metric to trigger automated actions.
-  - name: Log Insights
-    description: Analyze log data with SQL and natural language queries using CloudWatch Logs Insights.
-  - name: OpenTelemetry Integration
-    description: Ingest OpenTelemetry data alongside native AWS metrics and traces.
-- type: UseCases
-  data:
-  - name: Infrastructure Monitoring
-    description: Monitor EC2, RDS, Lambda, and other AWS resources with built-in metrics.
-  - name: Application Performance
-    description: Track application performance metrics and detect latency or error rate spikes.
-  - name: Log Analysis
-    description: Aggregate and query application logs for troubleshooting and analytics.
-  - name: Automated Remediation
-    description: Trigger auto-scaling, Lambda functions, or SNS alerts based on metric alarms.
-- type: Integrations
-  data:
-  - name: Amazon EC2
-    description: Monitor EC2 instance performance metrics including CPU, network, and disk.
-  - name: AWS Lambda
-    description: Monitor Lambda invocations, errors, and duration metrics automatically.
-  - name: Amazon Prometheus
-    description: Ingest Prometheus metrics into CloudWatch for unified monitoring.
-  - name: Grafana
-    description: Connect CloudWatch data sources to Grafana dashboards.
-  - name: AWS X-Ray
-    description: Correlate traces from X-Ray with CloudWatch metrics and logs.
+  - type: MCPServer
+    url: mcp/amazon-cloudwatch-mcp.yml
+  - type: Overlay
+    url: overlays/amazon-cloudwatch-openapi-overlay.yaml
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/amazon-cloudwatch/overview
+  - type: AgenticAccess
+    url: agentic-access/amazon-cloudwatch-agentic-access.yml
+  - type: TrustCenter
+    url: security/amazon-cloudwatch-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/amazon-cloudwatch-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-cloudwatch-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-cloudwatch-authentication.yml
+  - type: Portal
+    url: https://aws.amazon.com/
+  - type: Website
+    url: https://aws.amazon.com/cloudwatch/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/
+  - type: TermsOfService
+    url: https://aws.amazon.com/service-terms/
+  - type: PrivacyPolicy
+    url: https://aws.amazon.com/privacy/
+  - type: Support
+    url: https://aws.amazon.com/premiumsupport/
+  - type: Blog
+    url: https://aws.amazon.com/blogs/mt/
+  - type: BlogRSS
+    url: https://aws.amazon.com/blogs/mt/tag/amazon-cloudwatch/feed/
+  - type: GitHubOrganization
+    url: https://github.com/aws
+  - type: Console
+    url: https://console.aws.amazon.com/cloudwatch/
+  - type: SignUp
+    url: https://signin.aws.amazon.com/signup?request_type=register
+  - type: StatusPage
+    url: https://health.aws.amazon.com/health/status
+  - type: YouTube
+    url: https://www.youtube.com/user/AmazonWebServices
+  - type: StackOverflow
+    url: https://stackoverflow.com/questions/tagged/amazon-cloudwatch
+  - type: Contact
+    url: https://aws.amazon.com/contact-us/
+  - type: Compliance
+    url: https://aws.amazon.com/compliance/
+  - type: SpectralRules
+    url: rules/amazon-cloudwatch-spectral-rules.yml
+  - type: Vocabulary
+    url: vocabulary/amazon-cloudwatch-vocabulary.yaml
+  - type: Packages
+    url: packages/amazon-cloudwatch-packages.yml
+  - type: WellKnown
+    url: well-known/amazon-cloudwatch-well-known.yml
+  - type: SecurityTxt
+    url: well-known/amazon-cloudwatch-security.txt
+  - type: LLMsTxt
+    url: llms/amazon-cloudwatch-llms.txt
+  - type: Features
+    data:
+      - name: Unified Observability
+        description: Monitor metrics, logs, and traces in one interface for complete system visibility.
+      - name: AI-Powered Insights
+        description: Detect anomalies and investigate issues using AI-powered CloudWatch Investigations.
+      - name: Dashboards
+        description: Create custom dashboards with pre-built and customizable metric visualizations.
+      - name: Alarms
+        description: Set threshold-based alarms on any metric to trigger automated actions.
+      - name: Log Insights
+        description: Analyze log data with SQL and natural language queries using CloudWatch Logs Insights.
+      - name: OpenTelemetry Integration
+        description: Ingest OpenTelemetry data alongside native AWS metrics and traces.
+  - type: UseCases
+    data:
+      - name: Infrastructure Monitoring
+        description: Monitor EC2, RDS, Lambda, and other AWS resources with built-in metrics.
+      - name: Application Performance
+        description: Track application performance metrics and detect latency or error rate spikes.
+      - name: Log Analysis
+        description: Aggregate and query application logs for troubleshooting and analytics.
+      - name: Automated Remediation
+        description: Trigger auto-scaling, Lambda functions, or SNS alerts based on metric alarms.
+  - type: Integrations
+    data:
+      - name: Amazon EC2
+        description: Monitor EC2 instance performance metrics including CPU, network, and disk.
+      - name: AWS Lambda
+        description: Monitor Lambda invocations, errors, and duration metrics automatically.
+      - name: Amazon Prometheus
+        description: Ingest Prometheus metrics into CloudWatch for unified monitoring.
+      - name: Grafana
+        description: Connect CloudWatch data sources to Grafana dashboards.
+      - name: AWS X-Ray
+        description: Correlate traces from X-Ray with CloudWatch metrics and logs.
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
-  url: https://apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+    url: https://apievangelist.com
 tags:
-- AWS
-- CloudWatch
-- Monitoring
-- Observability
-- Metrics
-- Logs
+  - AWS
+  - CloudWatch
+  - Monitoring
+  - Observability
+  - Metrics
+  - Logs
