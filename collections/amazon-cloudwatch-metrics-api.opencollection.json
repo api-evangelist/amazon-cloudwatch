@@ -1,0 +1,264 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon CloudWatch Alarms Metrics API",
+    "version": "2010-08-01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon CloudWatch Publish metric data points",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://monitoring.{region}.amazonaws.com/?Action=PutMetricData",
+            "params": [
+              {
+                "name": "Namespace",
+                "value": "",
+                "type": "query",
+                "description": "The namespace for the metric data"
+              },
+              {
+                "name": "MetricData.member.1.MetricName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the metric"
+              },
+              {
+                "name": "MetricData.member.1.Value",
+                "value": "",
+                "type": "query",
+                "description": "The value for the metric"
+              },
+              {
+                "name": "MetricData.member.1.Timestamp",
+                "value": "",
+                "type": "query",
+                "description": "The time the metric data was received"
+              },
+              {
+                "name": "MetricData.member.1.Unit",
+                "value": "",
+                "type": "query",
+                "description": "The unit of the metric"
+              },
+              {
+                "name": "MetricData.member.1.Dimensions.member.1.Name",
+                "value": "",
+                "type": "query",
+                "description": "The name of the dimension"
+              },
+              {
+                "name": "MetricData.member.1.Dimensions.member.1.Value",
+                "value": "",
+                "type": "query",
+                "description": "The value of the dimension"
+              }
+            ]
+          },
+          "docs": "Publishes metric data points to Amazon CloudWatch. CloudWatch associates the data points with the specified metric. If the specified metric does not exist, CloudWatch creates the metric. When CloudWatch creates a metric, it can take up to fifteen minutes for the metric to appear in calls to ListMetrics."
+        },
+        {
+          "info": {
+            "name": "Amazon CloudWatch Retrieve metric data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://monitoring.{region}.amazonaws.com/?Action=GetMetricData",
+            "params": [
+              {
+                "name": "StartTime",
+                "value": "",
+                "type": "query",
+                "description": "The start of the time range to retrieve metric data"
+              },
+              {
+                "name": "EndTime",
+                "value": "",
+                "type": "query",
+                "description": "The end of the time range to retrieve metric data"
+              },
+              {
+                "name": "MetricDataQueries.member.1.Id",
+                "value": "",
+                "type": "query",
+                "description": "A short name to identify the query"
+              },
+              {
+                "name": "MetricDataQueries.member.1.MetricStat.Metric.Namespace",
+                "value": "",
+                "type": "query",
+                "description": "The namespace of the metric"
+              },
+              {
+                "name": "MetricDataQueries.member.1.MetricStat.Metric.MetricName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the metric"
+              },
+              {
+                "name": "MetricDataQueries.member.1.MetricStat.Period",
+                "value": "",
+                "type": "query",
+                "description": "The granularity in seconds of the returned data points"
+              },
+              {
+                "name": "MetricDataQueries.member.1.MetricStat.Stat",
+                "value": "",
+                "type": "query",
+                "description": "The statistic to return (e.g., Average, Sum, Maximum)"
+              },
+              {
+                "name": "MaxDatapoints",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of data points to return"
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query",
+                "description": "Token for the next page of results"
+              }
+            ]
+          },
+          "docs": "Retrieves CloudWatch metric values. You can use GetMetricData to retrieve as many as 500 different metrics in a single request, with a total of as many as 100,800 data points."
+        },
+        {
+          "info": {
+            "name": "Amazon CloudWatch Get statistics for a metric",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://monitoring.{region}.amazonaws.com/?Action=GetMetricStatistics",
+            "params": [
+              {
+                "name": "Namespace",
+                "value": "",
+                "type": "query",
+                "description": "The namespace of the metric"
+              },
+              {
+                "name": "MetricName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the metric"
+              },
+              {
+                "name": "StartTime",
+                "value": "",
+                "type": "query",
+                "description": "The start of the time range for the data points"
+              },
+              {
+                "name": "EndTime",
+                "value": "",
+                "type": "query",
+                "description": "The end of the time range for the data points"
+              },
+              {
+                "name": "Period",
+                "value": "",
+                "type": "query",
+                "description": "The granularity in seconds of the returned data points"
+              },
+              {
+                "name": "Statistics.member.1",
+                "value": "",
+                "type": "query",
+                "description": "The metric statistic to return"
+              },
+              {
+                "name": "Dimensions.member.1.Name",
+                "value": "",
+                "type": "query",
+                "description": "The name of the dimension"
+              },
+              {
+                "name": "Dimensions.member.1.Value",
+                "value": "",
+                "type": "query",
+                "description": "The value of the dimension"
+              },
+              {
+                "name": "Unit",
+                "value": "",
+                "type": "query",
+                "description": "The unit for the metric"
+              }
+            ]
+          },
+          "docs": "Gets statistics for the specified metric. The maximum number of data points returned from a single call is 1,440. CloudWatch retains metric data as follows: data points with a period of less than 60 seconds are available for 3 hours, 60-second data points for 15 days, 5-minute data points for 63 days, and 1-hour data points for 455 days."
+        },
+        {
+          "info": {
+            "name": "Amazon CloudWatch List available metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://monitoring.{region}.amazonaws.com/?Action=ListMetrics",
+            "params": [
+              {
+                "name": "Namespace",
+                "value": "",
+                "type": "query",
+                "description": "Filter by namespace"
+              },
+              {
+                "name": "MetricName",
+                "value": "",
+                "type": "query",
+                "description": "Filter by metric name"
+              },
+              {
+                "name": "Dimensions.member.1.Name",
+                "value": "",
+                "type": "query",
+                "description": "The name of the dimension to filter by"
+              },
+              {
+                "name": "Dimensions.member.1.Value",
+                "value": "",
+                "type": "query",
+                "description": "The value of the dimension to filter by"
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query",
+                "description": "Token for the next page of results"
+              },
+              {
+                "name": "RecentlyActive",
+                "value": "",
+                "type": "query",
+                "description": "Filter to metrics that have had data points published in the past three hours"
+              }
+            ]
+          },
+          "docs": "List the specified metrics. You can use the returned metrics with GetMetricData or GetMetricStatistics to get statistical data. Up to 500 results are returned for any one call."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1449 @@
+{
+  "item": [
+    {
+      "id": "1e4605bd-5e3b-437d-b62f-df29e9a45ee4",
+      "name": "Metrics",
+      "description": {
+        "content": "Operations for publishing, retrieving, and listing CloudWatch metrics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d4369c82-cb25-48c2-a440-9380bcafdca1",
+          "name": "Amazon CloudWatch Publish metric data points",
+          "request": {
+            "name": "Amazon CloudWatch Publish metric data points",
+            "description": {
+              "content": "Publishes metric data points to Amazon CloudWatch. CloudWatch associates the data points with the specified metric. If the specified metric does not exist, CloudWatch creates the metric. When CloudWatch creates a metric, it can take up to fifteen minutes for the metric to appear in calls to ListMetrics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "PutMetricData"
+                },
+                {
+                  "disabled": false,
+                  "key": "Namespace",
+                  "value": "<string>",
+                  "description": "(Required) The namespace for the metric data"
+                },
+                {
+                  "disabled": false,
+                  "key": "MetricData.member.1.MetricName",
+                  "value": "<string>",
+                  "description": "(Required) The name of the metric"
+                },
+                {
+                  "disabled": false,
+                  "key": "MetricData.member.1.Value",
+                  "value": "<number>",
+                  "description": "The value for the metric"
+                },
+                {
+                  "disabled": false,
+                  "key": "MetricData.member.1.Timestamp",
+                  "value": "<dateTime>",
+                  "description": "The time the metric data was received"
+                },
+                {
+                  "disabled": false,
+                  "key": "MetricData.member.1.Unit",
+                  "value": "<string>",
+                  "description": "The unit of the metric"
+                },
+                {
+                  "disabled": false,
+                  "key": "MetricData.member.1.Dimensions.member.1.Name",
+                  "value": "<string>",
+                  "description": "The name of the dimension"
+                },
+                {
+                  "disabled": false,
+                  "key": "MetricData.member.1.Dimensions.member.1.Value",
+                  "value": "<string>",
+                  "description": "The value of the dimension"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e548b5db-f353-4151-a9c0-b07bea4cd6db",
+              "name": "Successfully published metric data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricData.member.1.MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricData.member.1.Value",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "MetricData.member.1.Timestamp",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "MetricData.member.1.Unit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricData.member.1.Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricData.member.1.Dimensions.member.1.Value",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "25ef5815-dd86-4cd7-b5b6-1c07d3874223",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricData.member.1.MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricData.member.1.Value",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "MetricData.member.1.Timestamp",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "MetricData.member.1.Unit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricData.member.1.Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricData.member.1.Dimensions.member.1.Value",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "73a02b54-eb83-4bcf-8559-67d63ee2fe71",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricData.member.1.MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricData.member.1.Value",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "MetricData.member.1.Timestamp",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "MetricData.member.1.Unit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricData.member.1.Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricData.member.1.Dimensions.member.1.Value",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "da4757bd-c585-463d-8890-618bf47d7b71",
+              "name": "Authorization failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricData.member.1.MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricData.member.1.Value",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "MetricData.member.1.Timestamp",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "MetricData.member.1.Unit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricData.member.1.Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricData.member.1.Dimensions.member.1.Value",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c54b4496-b9cd-4f02-b221-c5e423295cca",
+          "name": "Amazon CloudWatch Retrieve metric data",
+          "request": {
+            "name": "Amazon CloudWatch Retrieve metric data",
+            "description": {
+              "content": "Retrieves CloudWatch metric values. You can use GetMetricData to retrieve as many as 500 different metrics in a single request, with a total of as many as 100,800 data points.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "GetMetricData"
+                },
+                {
+                  "disabled": false,
+                  "key": "StartTime",
+                  "value": "<dateTime>",
+                  "description": "(Required) The start of the time range to retrieve metric data"
+                },
+                {
+                  "disabled": false,
+                  "key": "EndTime",
+                  "value": "<dateTime>",
+                  "description": "(Required) The end of the time range to retrieve metric data"
+                },
+                {
+                  "disabled": false,
+                  "key": "MetricDataQueries.member.1.Id",
+                  "value": "<string>",
+                  "description": "(Required) A short name to identify the query"
+                },
+                {
+                  "disabled": false,
+                  "key": "MetricDataQueries.member.1.MetricStat.Metric.Namespace",
+                  "value": "<string>",
+                  "description": "The namespace of the metric"
+                },
+                {
+                  "disabled": false,
+                  "key": "MetricDataQueries.member.1.MetricStat.Metric.MetricName",
+                  "value": "<string>",
+                  "description": "The name of the metric"
+                },
+                {
+                  "disabled": false,
+                  "key": "MetricDataQueries.member.1.MetricStat.Period",
+                  "value": "<integer>",
+                  "description": "The granularity in seconds of the returned data points"
+                },
+                {
+                  "disabled": false,
+                  "key": "MetricDataQueries.member.1.MetricStat.Stat",
+                  "value": "<string>",
+                  "description": "The statistic to return (e.g., Average, Sum, Maximum)"
+                },
+                {
+                  "disabled": false,
+                  "key": "MaxDatapoints",
+                  "value": "<integer>",
+                  "description": "The maximum number of data points to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "NextToken",
+                  "value": "<string>",
+                  "description": "Token for the next page of results"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce19aab9-bd3f-47d3-b193-71de648d7c41",
+              "name": "Successfully retrieved metric data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "StartTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "EndTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "MetricDataQueries.member.1.Id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricDataQueries.member.1.MetricStat.Metric.Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricDataQueries.member.1.MetricStat.Metric.MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricDataQueries.member.1.MetricStat.Period",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "MetricDataQueries.member.1.MetricStat.Stat",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxDatapoints",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <metricDataResults>\n    <id>(string)</id>\n    <label>(string)</label>\n    <timestamps>(string)</timestamps>\n    <timestamps>(string)</timestamps>\n    <values>(number)</values>\n    <values>(number)</values>\n    <statusCode>(string)</statusCode>\n  </metricDataResults>\n  <metricDataResults>\n    <id>(string)</id>\n    <label>(string)</label>\n    <timestamps>(string)</timestamps>\n    <timestamps>(string)</timestamps>\n    <values>(number)</values>\n    <values>(number)</values>\n    <statusCode>(string)</statusCode>\n  </metricDataResults>\n  <nextToken>(string)</nextToken>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "a604d03b-903e-455a-ad9f-b88b34a28157",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "StartTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "EndTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "MetricDataQueries.member.1.Id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricDataQueries.member.1.MetricStat.Metric.Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricDataQueries.member.1.MetricStat.Metric.MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricDataQueries.member.1.MetricStat.Period",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "MetricDataQueries.member.1.MetricStat.Stat",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxDatapoints",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d2b3d90b-dfd7-4db0-a201-70c5e8e6e0a0",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "StartTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "EndTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "MetricDataQueries.member.1.Id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricDataQueries.member.1.MetricStat.Metric.Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricDataQueries.member.1.MetricStat.Metric.MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricDataQueries.member.1.MetricStat.Period",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "MetricDataQueries.member.1.MetricStat.Stat",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxDatapoints",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c36f5a9a-068b-4472-b278-733aa5764d4b",
+          "name": "Amazon CloudWatch Get statistics for a metric",
+          "request": {
+            "name": "Amazon CloudWatch Get statistics for a metric",
+            "description": {
+              "content": "Gets statistics for the specified metric. The maximum number of data points returned from a single call is 1,440. CloudWatch retains metric data as follows: data points with a period of less than 60 seconds are available for 3 hours, 60-second data points for 15 days, 5-minute data points for 63 days, and 1-hour data points for 455 days.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "GetMetricStatistics"
+                },
+                {
+                  "disabled": false,
+                  "key": "Namespace",
+                  "value": "<string>",
+                  "description": "(Required) The namespace of the metric"
+                },
+                {
+                  "disabled": false,
+                  "key": "MetricName",
+                  "value": "<string>",
+                  "description": "(Required) The name of the metric"
+                },
+                {
+                  "disabled": false,
+                  "key": "StartTime",
+                  "value": "<dateTime>",
+                  "description": "(Required) The start of the time range for the data points"
+                },
+                {
+                  "disabled": false,
+                  "key": "EndTime",
+                  "value": "<dateTime>",
+                  "description": "(Required) The end of the time range for the data points"
+                },
+                {
+                  "disabled": false,
+                  "key": "Period",
+                  "value": "<integer>",
+                  "description": "(Required) The granularity in seconds of the returned data points"
+                },
+                {
+                  "disabled": false,
+                  "key": "Statistics.member.1",
+                  "value": "<string>",
+                  "description": "The metric statistic to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "Dimensions.member.1.Name",
+                  "value": "<string>",
+                  "description": "The name of the dimension"
+                },
+                {
+                  "disabled": false,
+                  "key": "Dimensions.member.1.Value",
+                  "value": "<string>",
+                  "description": "The value of the dimension"
+                },
+                {
+                  "disabled": false,
+                  "key": "Unit",
+                  "value": "<string>",
+                  "description": "The unit for the metric"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "93ff3721-172a-481a-9ea8-52ca4b798fe5",
+              "name": "Successfully retrieved metric statistics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StartTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "EndTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "Period",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Statistics.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Dimensions.member.1.Value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Unit",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <label>(string)</label>\n  <datapoints>\n    <timestamp>(string)</timestamp>\n    <sampleCount>(number)</sampleCount>\n    <average>(number)</average>\n    <sum>(number)</sum>\n    <minimum>(number)</minimum>\n    <maximum>(number)</maximum>\n    <unit>(string)</unit>\n  </datapoints>\n  <datapoints>\n    <timestamp>(string)</timestamp>\n    <sampleCount>(number)</sampleCount>\n    <average>(number)</average>\n    <sum>(number)</sum>\n    <minimum>(number)</minimum>\n    <maximum>(number)</maximum>\n    <unit>(string)</unit>\n  </datapoints>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "576fedf4-3838-4141-96fa-9c99fe3cb22b",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StartTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "EndTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "Period",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Statistics.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Dimensions.member.1.Value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Unit",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b217685a-d006-4b19-bcba-2b2c156ffc4f",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StartTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "EndTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "Period",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Statistics.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Dimensions.member.1.Value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Unit",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ea6de7aa-f586-4d48-8b3b-21d63bd6ec00",
+          "name": "Amazon CloudWatch List available metrics",
+          "request": {
+            "name": "Amazon CloudWatch List available metrics",
+            "description": {
+              "content": "List the specified metrics. You can use the returned metrics with GetMetricData or GetMetricStatistics to get statistical data. Up to 500 results are returned for any one call.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "ListMetrics"
+                },
+                {
+                  "disabled": false,
+                  "key": "Namespace",
+                  "value": "<string>",
+                  "description": "Filter by namespace"
+                },
+                {
+                  "disabled": false,
+                  "key": "MetricName",
+                  "value": "<string>",
+                  "description": "Filter by metric name"
+                },
+                {
+                  "disabled": false,
+                  "key": "Dimensions.member.1.Name",
+                  "value": "<string>",
+                  "description": "The name of the dimension to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "Dimensions.member.1.Value",
+                  "value": "<string>",
+                  "description": "The value of the dimension to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "NextToken",
+                  "value": "<string>",
+                  "description": "Token for the next page of results"
+                },
+                {
+                  "disabled": false,
+                  "key": "RecentlyActive",
+                  "value": "<string>",
+                  "description": "Filter to metrics that have had data points published in the past three hours"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7963fbe1-2165-4e85-be6b-667dd2a66404",
+              "name": "Successfully listed metrics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Dimensions.member.1.Value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RecentlyActive",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <metrics>\n    <namespace>(string)</namespace>\n    <metricName>(string)</metricName>\n    <dimensions>\n      <name>(string)</name>\n      <value>(string)</value>\n    </dimensions>\n    <dimensions>\n      <name>(string)</name>\n      <value>(string)</value>\n    </dimensions>\n  </metrics>\n  <metrics>\n    <namespace>(string)</namespace>\n    <metricName>(string)</metricName>\n    <dimensions>\n      <name>(string)</name>\n      <value>(string)</value>\n    </dimensions>\n    <dimensions>\n      <name>(string)</name>\n      <value>(string)</value>\n    </dimensions>\n  </metrics>\n  <nextToken>(string)</nextToken>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "8d28e10f-96d0-4d11-a33a-0d69c9ce1fc3",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Dimensions.member.1.Value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RecentlyActive",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "19cfeab9-4e7c-4e83-b570-2d4365d91288",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Dimensions.member.1.Value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RecentlyActive",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "AWS Region",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us-east-1",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://monitoring.{{region}}.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ce56a3e4-8052-405c-9649-e825298a1a76",
+    "name": "Amazon CloudWatch Alarms Metrics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Amazon CloudWatch monitors your Amazon Web Services resources and the applications you run on AWS in real time. You can use CloudWatch to collect and track metrics, create alarms that send notifications, and automatically react to changes in your AWS resources. CloudWatch provides a reliable, scalable, and flexible monitoring solution for your cloud infrastructure.\n\nContact Support:\n Name: Amazon Web Services",
+      "type": "text/plain"
+    }
+  }
+}

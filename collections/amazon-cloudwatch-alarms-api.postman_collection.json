@@ -1,0 +1,1175 @@
+{
+  "item": [
+    {
+      "id": "51c2c2a5-5dd7-40d5-a3be-88da71966e77",
+      "name": "Alarms",
+      "description": {
+        "content": "Operations for creating, describing, and deleting metric alarms",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0e577e37-3bb6-4ec3-b4a1-16c494b3a81d",
+          "name": "Amazon CloudWatch Create or update a metric alarm",
+          "request": {
+            "name": "Amazon CloudWatch Create or update a metric alarm",
+            "description": {
+              "content": "Creates or updates an alarm and associates it with the specified metric, metric math expression, anomaly detection model, or Metrics Insights query. When the alarm state changes, the action specified is performed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "PutMetricAlarm"
+                },
+                {
+                  "disabled": false,
+                  "key": "AlarmName",
+                  "value": "<string>",
+                  "description": "(Required) The name for the alarm"
+                },
+                {
+                  "disabled": false,
+                  "key": "AlarmDescription",
+                  "value": "<string>",
+                  "description": "A description for the alarm"
+                },
+                {
+                  "disabled": false,
+                  "key": "Namespace",
+                  "value": "<string>",
+                  "description": "The namespace for the metric associated with the alarm"
+                },
+                {
+                  "disabled": false,
+                  "key": "MetricName",
+                  "value": "<string>",
+                  "description": "The name for the metric associated with the alarm"
+                },
+                {
+                  "disabled": false,
+                  "key": "Statistic",
+                  "value": "<string>",
+                  "description": "The statistic for the metric associated with the alarm"
+                },
+                {
+                  "disabled": false,
+                  "key": "Period",
+                  "value": "<integer>",
+                  "description": "The length in seconds of the evaluation period"
+                },
+                {
+                  "disabled": false,
+                  "key": "EvaluationPeriods",
+                  "value": "<integer>",
+                  "description": "(Required) The number of periods over which data is compared to the threshold"
+                },
+                {
+                  "disabled": false,
+                  "key": "Threshold",
+                  "value": "<number>",
+                  "description": "The value to compare with the specified statistic"
+                },
+                {
+                  "disabled": false,
+                  "key": "ComparisonOperator",
+                  "value": "<string>",
+                  "description": "(Required) The arithmetic operation to use when comparing the statistic and threshold"
+                },
+                {
+                  "disabled": false,
+                  "key": "ActionsEnabled",
+                  "value": "<boolean>",
+                  "description": "Whether actions should be executed during alarm state changes"
+                },
+                {
+                  "disabled": false,
+                  "key": "AlarmActions.member.1",
+                  "value": "<string>",
+                  "description": "The ARN of the action to execute when the alarm transitions to ALARM state"
+                },
+                {
+                  "disabled": false,
+                  "key": "OKActions.member.1",
+                  "value": "<string>",
+                  "description": "The ARN of the action to execute when the alarm transitions to OK state"
+                },
+                {
+                  "disabled": false,
+                  "key": "InsufficientDataActions.member.1",
+                  "value": "<string>",
+                  "description": "The ARN of the action to execute when the alarm transitions to INSUFFICIENT_DATA state"
+                },
+                {
+                  "disabled": false,
+                  "key": "Dimensions.member.1.Name",
+                  "value": "<string>",
+                  "description": "The name of the dimension"
+                },
+                {
+                  "disabled": false,
+                  "key": "Dimensions.member.1.Value",
+                  "value": "<string>",
+                  "description": "The value of the dimension"
+                },
+                {
+                  "disabled": false,
+                  "key": "TreatMissingData",
+                  "value": "<string>",
+                  "description": "How to treat missing data when evaluating the alarm"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "154c5f45-1271-4322-a7b5-f49109b2efee",
+              "name": "Successfully created or updated alarm",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AlarmName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AlarmDescription",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Statistic",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Period",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "EvaluationPeriods",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Threshold",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "ComparisonOperator",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ActionsEnabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "AlarmActions.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "OKActions.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "InsufficientDataActions.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Dimensions.member.1.Value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TreatMissingData",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "548aec69-86f5-42c1-870e-7667b5aa77b9",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AlarmName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AlarmDescription",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Statistic",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Period",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "EvaluationPeriods",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Threshold",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "ComparisonOperator",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ActionsEnabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "AlarmActions.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "OKActions.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "InsufficientDataActions.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Dimensions.member.1.Value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TreatMissingData",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fafd4e8c-9cb1-45cb-b26e-aaf3e4d6d8e5",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AlarmName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AlarmDescription",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Statistic",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Period",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "EvaluationPeriods",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Threshold",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "ComparisonOperator",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ActionsEnabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "AlarmActions.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "OKActions.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "InsufficientDataActions.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Dimensions.member.1.Value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TreatMissingData",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7e8be6e0-b68a-453c-a96b-0c09952377f0",
+              "name": "Authorization failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AlarmName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AlarmDescription",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MetricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Statistic",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Period",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "EvaluationPeriods",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "Threshold",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "ComparisonOperator",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ActionsEnabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "AlarmActions.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "OKActions.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "InsufficientDataActions.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Dimensions.member.1.Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Dimensions.member.1.Value",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TreatMissingData",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95b253ad-8b16-49ab-9072-731621c96097",
+          "name": "Amazon CloudWatch Describe metric alarms",
+          "request": {
+            "name": "Amazon CloudWatch Describe metric alarms",
+            "description": {
+              "content": "Retrieves the specified alarms. You can filter the results by specifying a prefix for the alarm name, the alarm state, or a prefix for any action.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DescribeAlarms"
+                },
+                {
+                  "disabled": false,
+                  "key": "AlarmNames.member.1",
+                  "value": "<string>",
+                  "description": "The name of the alarm to retrieve"
+                },
+                {
+                  "disabled": false,
+                  "key": "AlarmNamePrefix",
+                  "value": "<string>",
+                  "description": "An alarm name prefix to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "StateValue",
+                  "value": "<string>",
+                  "description": "Filter by alarm state"
+                },
+                {
+                  "disabled": false,
+                  "key": "ActionPrefix",
+                  "value": "<string>",
+                  "description": "An action name prefix to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "MaxRecords",
+                  "value": "<integer>",
+                  "description": "The maximum number of alarm descriptions to retrieve"
+                },
+                {
+                  "disabled": false,
+                  "key": "NextToken",
+                  "value": "<string>",
+                  "description": "Token for the next page of results"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f96f0987-d854-4983-8186-b1762c2660d9",
+              "name": "Successfully described alarms",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AlarmNames.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AlarmNamePrefix",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StateValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ActionPrefix",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <metricAlarms>\n    <alarmName>(string)</alarmName>\n    <alarmArn>(string)</alarmArn>\n    <alarmDescription>(string)</alarmDescription>\n    <stateValue>(string)</stateValue>\n    <stateReason>(string)</stateReason>\n    <stateUpdatedTimestamp>(string)</stateUpdatedTimestamp>\n    <metricName>(string)</metricName>\n    <namespace>(string)</namespace>\n    <statistic>(string)</statistic>\n    <dimensions>\n      <name>(string)</name>\n      <value>(string)</value>\n    </dimensions>\n    <dimensions>\n      <name>(string)</name>\n      <value>(string)</value>\n    </dimensions>\n    <period>(integer)</period>\n    <evaluationPeriods>(integer)</evaluationPeriods>\n    <threshold>(number)</threshold>\n    <comparisonOperator>(string)</comparisonOperator>\n    <treatMissingData>(string)</treatMissingData>\n    <actionsEnabled>(boolean)</actionsEnabled>\n    <alarmActions>(string)</alarmActions>\n    <alarmActions>(string)</alarmActions>\n    <okActions>(string)</okActions>\n    <okActions>(string)</okActions>\n    <insufficientDataActions>(string)</insufficientDataActions>\n    <insufficientDataActions>(string)</insufficientDataActions>\n  </metricAlarms>\n  <metricAlarms>\n    <alarmName>(string)</alarmName>\n    <alarmArn>(string)</alarmArn>\n    <alarmDescription>(string)</alarmDescription>\n    <stateValue>(string)</stateValue>\n    <stateReason>(string)</stateReason>\n    <stateUpdatedTimestamp>(string)</stateUpdatedTimestamp>\n    <metricName>(string)</metricName>\n    <namespace>(string)</namespace>\n    <statistic>(string)</statistic>\n    <dimensions>\n      <name>(string)</name>\n      <value>(string)</value>\n    </dimensions>\n    <dimensions>\n      <name>(string)</name>\n      <value>(string)</value>\n    </dimensions>\n    <period>(integer)</period>\n    <evaluationPeriods>(integer)</evaluationPeriods>\n    <threshold>(number)</threshold>\n    <comparisonOperator>(string)</comparisonOperator>\n    <treatMissingData>(string)</treatMissingData>\n    <actionsEnabled>(boolean)</actionsEnabled>\n    <alarmActions>(string)</alarmActions>\n    <alarmActions>(string)</alarmActions>\n    <okActions>(string)</okActions>\n    <okActions>(string)</okActions>\n    <insufficientDataActions>(string)</insufficientDataActions>\n    <insufficientDataActions>(string)</insufficientDataActions>\n  </metricAlarms>\n  <nextToken>(string)</nextToken>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "bfa77a06-d49f-440a-acf2-c8be25625343",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AlarmNames.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AlarmNamePrefix",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StateValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ActionPrefix",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c54571d6-6456-46e6-a89d-e253838642be",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AlarmNames.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AlarmNamePrefix",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StateValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ActionPrefix",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxRecords",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d761a2db-66bf-472f-8e2f-55a2306c9e74",
+          "name": "Amazon CloudWatch Delete metric alarms",
+          "request": {
+            "name": "Amazon CloudWatch Delete metric alarms",
+            "description": {
+              "content": "Deletes the specified alarms. You can delete up to 100 alarms in one operation. In the event of an error, no alarms are deleted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DeleteAlarms"
+                },
+                {
+                  "disabled": false,
+                  "key": "AlarmNames.member.1",
+                  "value": "<string>",
+                  "description": "(Required) The name of the alarm to delete"
+                },
+                {
+                  "disabled": false,
+                  "key": "AlarmNames.member.2",
+                  "value": "<string>",
+                  "description": "Additional alarm name to delete"
+                },
+                {
+                  "disabled": false,
+                  "key": "AlarmNames.member.3",
+                  "value": "<string>",
+                  "description": "Additional alarm name to delete"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eac91f95-261f-4432-a8d3-b91d7cc04f4c",
+              "name": "Successfully deleted alarms",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AlarmNames.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AlarmNames.member.2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AlarmNames.member.3",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a72a5027-4159-419f-980f-493f356a5bf8",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AlarmNames.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AlarmNames.member.2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AlarmNames.member.3",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f7651455-f213-49fb-b248-4625aaadbe8f",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "AlarmNames.member.1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AlarmNames.member.2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "AlarmNames.member.3",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "AWS Region",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us-east-1",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://monitoring.{{region}}.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d2ee67ef-0127-486b-9e52-996fc15688e8",
+    "name": "Amazon CloudWatch Alarms API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Amazon CloudWatch monitors your Amazon Web Services resources and the applications you run on AWS in real time. You can use CloudWatch to collect and track metrics, create alarms that send notifications, and automatically react to changes in your AWS resources. CloudWatch provides a reliable, scalable, and flexible monitoring solution for your cloud infrastructure.\n\nContact Support:\n Name: Amazon Web Services",
+      "type": "text/plain"
+    }
+  }
+}

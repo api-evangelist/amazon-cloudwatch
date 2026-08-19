@@ -1,0 +1,95 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon CloudWatch Alarms Dashboards API",
+    "version": "2010-08-01"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Dashboards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon CloudWatch Create or update a dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://monitoring.{region}.amazonaws.com/?Action=PutDashboard",
+            "params": [
+              {
+                "name": "DashboardName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the dashboard"
+              },
+              {
+                "name": "DashboardBody",
+                "value": "",
+                "type": "query",
+                "description": "The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard"
+              }
+            ]
+          },
+          "docs": "Creates a dashboard if it does not already exist, or updates an existing dashboard. If you update a dashboard, the entire contents are replaced with what you specify here. There is no limit to the number of dashboards in your account."
+        },
+        {
+          "info": {
+            "name": "Amazon CloudWatch Get a dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://monitoring.{region}.amazonaws.com/?Action=GetDashboard",
+            "params": [
+              {
+                "name": "DashboardName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the dashboard to retrieve"
+              }
+            ]
+          },
+          "docs": "Displays the details of the dashboard that you specify. To copy an existing dashboard, use GetDashboard, and then use the data returned within DashboardBody as the template for the new dashboard."
+        },
+        {
+          "info": {
+            "name": "Amazon CloudWatch List dashboards",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://monitoring.{region}.amazonaws.com/?Action=ListDashboards",
+            "params": [
+              {
+                "name": "DashboardNamePrefix",
+                "value": "",
+                "type": "query",
+                "description": "Filter dashboards by name prefix"
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query",
+                "description": "Token for the next page of results"
+              }
+            ]
+          },
+          "docs": "Returns a list of the dashboards for your account. If you include DashboardNamePrefix, only those dashboards with names starting with the prefix are listed. Otherwise, all dashboards in your account are listed."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
