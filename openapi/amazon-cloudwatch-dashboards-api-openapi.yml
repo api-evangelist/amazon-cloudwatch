@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Amazon CloudWatch Alarms Dashboards API
   description: Amazon CloudWatch monitors your Amazon Web Services resources and the applications you run on AWS in real time. You can use CloudWatch to collect and track metrics, create alarms that send notifications, and automatically react to changes in your AWS resources. CloudWatch provides a reliable, scalable, and flexible monitoring solution for your cloud infrastructure.
@@ -107,31 +107,6 @@ paths:
           description: Authentication failure
 components:
   schemas:
-    ListDashboardsResponse:
-      type: object
-      description: Response from the ListDashboards action
-      properties:
-        dashboardEntries:
-          type: array
-          description: The list of matching dashboards
-          items:
-            $ref: '#/components/schemas/Dashboard'
-        nextToken:
-          type: string
-          description: Token for the next page of results
-    GetDashboardResponse:
-      type: object
-      description: Response from the GetDashboard action
-      properties:
-        dashboardArn:
-          type: string
-          description: The ARN of the dashboard
-        dashboardBody:
-          type: string
-          description: The detailed information about the dashboard in JSON format
-        dashboardName:
-          type: string
-          description: The name of the dashboard
     PutDashboardResponse:
       type: object
       description: Response from the PutDashboard action
@@ -148,6 +123,19 @@ components:
               message:
                 type: string
                 description: A message describing the error or warning
+    GetDashboardResponse:
+      type: object
+      description: Response from the GetDashboard action
+      properties:
+        dashboardArn:
+          type: string
+          description: The ARN of the dashboard
+        dashboardBody:
+          type: string
+          description: The detailed information about the dashboard in JSON format
+        dashboardName:
+          type: string
+          description: The name of the dashboard
     Dashboard:
       type: object
       description: Represents a CloudWatch dashboard
@@ -165,6 +153,18 @@ components:
         size:
           type: integer
           description: The size of the dashboard in bytes
+    ListDashboardsResponse:
+      type: object
+      description: Response from the ListDashboards action
+      properties:
+        dashboardEntries:
+          type: array
+          description: The list of matching dashboards
+          items:
+            $ref: '#/components/schemas/Dashboard'
+        nextToken:
+          type: string
+          description: Token for the next page of results
   securitySchemes:
     sigv4Auth:
       type: apiKey

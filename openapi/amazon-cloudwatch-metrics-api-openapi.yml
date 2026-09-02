@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Amazon CloudWatch Alarms Metrics API
   description: Amazon CloudWatch monitors your Amazon Web Services resources and the applications you run on AWS in real time. You can use CloudWatch to collect and track metrics, create alarms that send notifications, and automatically react to changes in your AWS resources. CloudWatch provides a reliable, scalable, and flexible monitoring solution for your cloud infrastructure.
@@ -308,44 +308,6 @@ paths:
           description: Authentication failure
 components:
   schemas:
-    GetMetricDataResponse:
-      type: object
-      description: Response from the GetMetricData action
-      properties:
-        metricDataResults:
-          type: array
-          description: The metrics that are returned
-          items:
-            type: object
-            properties:
-              id:
-                type: string
-                description: The short name specified in the query
-              label:
-                type: string
-                description: The human-readable label for the metric
-              timestamps:
-                type: array
-                description: The timestamps for the data points
-                items:
-                  type: string
-                  format: date-time
-              values:
-                type: array
-                description: The data point values
-                items:
-                  type: number
-              statusCode:
-                type: string
-                description: The status of the returned data
-                enum:
-                - Complete
-                - InternalError
-                - PartialData
-                - Forbidden
-        nextToken:
-          type: string
-          description: Token for the next page of results
     ListMetricsResponse:
       type: object
       description: Response from the ListMetrics action
@@ -415,6 +377,44 @@ components:
               unit:
                 type: string
                 description: The standard unit for the data point
+    GetMetricDataResponse:
+      type: object
+      description: Response from the GetMetricData action
+      properties:
+        metricDataResults:
+          type: array
+          description: The metrics that are returned
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: The short name specified in the query
+              label:
+                type: string
+                description: The human-readable label for the metric
+              timestamps:
+                type: array
+                description: The timestamps for the data points
+                items:
+                  type: string
+                  format: date-time
+              values:
+                type: array
+                description: The data point values
+                items:
+                  type: number
+              statusCode:
+                type: string
+                description: The status of the returned data
+                enum:
+                - Complete
+                - InternalError
+                - PartialData
+                - Forbidden
+        nextToken:
+          type: string
+          description: Token for the next page of results
   securitySchemes:
     sigv4Auth:
       type: apiKey

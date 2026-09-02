@@ -2,9 +2,9 @@ overlay: 1.0.0
 info:
   title: API Evangelist enhancements for Amazon CloudWatch API
   version: 1.0.0
-generated: '2026-06-20'
-method: generated
-source: openapi/amazon-cloudwatch-openapi.yml
+x-generated: '2026-06-20'
+x-method: generated
+x-source: openapi/amazon-cloudwatch-openapi.yml
 extends: openapi/amazon-cloudwatch-openapi.yml
 actions:
   - target: $.info
