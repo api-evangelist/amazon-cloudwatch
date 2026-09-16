@@ -29,9 +29,11 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-cloudwatch.png
 specificationVersion: '0.23'
-description: Amazon CloudWatch is an intelligent observability platform providing complete visibility into performance, availability, and security across your entire technology stack. Monitor applications, infrastructure, and workloads with unified metrics, logs, and traces plus AI-powered insights.
+description: Amazon CloudWatch is an intelligent observability platform providing complete visibility
+  into performance, availability, and security across your entire technology stack. Monitor applications,
+  infrastructure, and workloads with unified metrics, logs, and traces plus AI-powered insights.
 created: '2024-01-15'
-modified: '2026-06-20'
+modified: '2026-09-16'
 apis:
 - aid: amazon-cloudwatch:amazon-cloudwatch-alarms-api
   name: Amazon CloudWatch Alarms API
@@ -155,7 +157,9 @@ apis:
     url: lifecycle/amazon-cloudwatch-lifecycle.yml
 - aid: amazon-cloudwatch:monitoring-api
   name: Amazon CloudWatch API
-  description: Query API for publishing and retrieving metrics, managing alarms, and configuring dashboards in Amazon CloudWatch. Requests are authenticated with AWS Signature Version 4 (SigV4) using AWS access keys or temporary IAM credentials.
+  description: Query API for publishing and retrieving metrics, managing alarms, and configuring dashboards
+    in Amazon CloudWatch. Requests are authenticated with AWS Signature Version 4 (SigV4) using AWS access
+    keys or temporary IAM credentials.
   humanURL: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/Welcome.html
   baseURL: https://monitoring.us-east-1.amazonaws.com
   tags:
@@ -172,8 +176,9 @@ apis:
   - type: Endpoints
     url: https://docs.aws.amazon.com/general/latest/gr/cw_region.html
 - aid: amazon-cloudwatch:aws-cloudwatch-amazon-cloudwatch-api-api
-  name: Amazon CloudWatch Amazon CloudWatch API API
-  description: The Amazon CloudWatch API API from Amazon CloudWatch — 1 operation(s) for amazon cloudwatch api.
+  name: Amazon CloudWatch Amazon CloudWatch API
+  description: The Amazon CloudWatch API API from Amazon CloudWatch — 1 operation(s) for amazon cloudwatch
+    api.
   humanURL: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/Welcome.html
   baseURL: https://monitoring.us-east-1.amazonaws.com
   tags:
