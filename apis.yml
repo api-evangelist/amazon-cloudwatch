@@ -157,9 +157,10 @@ apis:
     url: lifecycle/amazon-cloudwatch-lifecycle.yml
 - aid: amazon-cloudwatch:monitoring-api
   name: Amazon CloudWatch API
-  description: Query API for publishing and retrieving metrics, managing alarms, and configuring dashboards
-    in Amazon CloudWatch. Requests are authenticated with AWS Signature Version 4 (SigV4) using AWS access
-    keys or temporary IAM credentials.
+  description: >-
+    Query API for publishing and retrieving metrics, managing alarms, and configuring dashboards in Amazon
+    CloudWatch. Requests are authenticated with AWS Signature Version 4 (SigV4) using AWS access keys
+    or temporary IAM credentials.
   humanURL: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/Welcome.html
   baseURL: https://monitoring.us-east-1.amazonaws.com
   tags:
@@ -175,17 +176,17 @@ apis:
     url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/
   - type: Endpoints
     url: https://docs.aws.amazon.com/general/latest/gr/cw_region.html
-- aid: amazon-cloudwatch:aws-cloudwatch-amazon-cloudwatch-api-api
+- aid: amazon-cloudwatch:amazon-cloudwatch-amazon-cloudwatch-api-api
   name: Amazon CloudWatch Amazon CloudWatch API
-  description: The Amazon CloudWatch API API from Amazon CloudWatch — 1 operation(s) for amazon cloudwatch
-    api.
-  humanURL: https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/Welcome.html
+  description: >-
+    The Amazon CloudWatch API API from Amazon CloudWatch — 1 operation(s) for amazon cloudwatch api.
+  humanURL: https://aws.amazon.com/cloudwatch/
   baseURL: https://monitoring.us-east-1.amazonaws.com
   tags:
   - Amazon CloudWatch API
   properties:
   - type: OpenAPI
-    url: openapi/aws-cloudwatch-amazon-cloudwatch-api-api-openapi.yml
+    url: openapi/amazon-cloudwatch-amazon-cloudwatch-api-api-openapi.yml
 common:
 - type: MCPServer
   url: mcp/amazon-cloudwatch-mcp.yml
