@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Amazon CloudWatch Alarms Metrics API
+  title: Amazon CloudWatch Metrics API
   description: Amazon CloudWatch monitors your Amazon Web Services resources and the applications you run on AWS in real time. You can use CloudWatch to collect and track metrics, create alarms that send notifications, and automatically react to changes in your AWS resources. CloudWatch provides a reliable, scalable, and flexible monitoring solution for your cloud infrastructure.
   version: '2010-08-01'
   contact:
@@ -308,75 +308,6 @@ paths:
           description: Authentication failure
 components:
   schemas:
-    ListMetricsResponse:
-      type: object
-      description: Response from the ListMetrics action
-      properties:
-        metrics:
-          type: array
-          description: The metrics that match the filter criteria
-          items:
-            $ref: '#/components/schemas/Metric'
-        nextToken:
-          type: string
-          description: Token for the next page of results
-    Metric:
-      type: object
-      description: Represents a specific metric
-      properties:
-        namespace:
-          type: string
-          description: The namespace of the metric
-        metricName:
-          type: string
-          description: The name of the metric
-        dimensions:
-          type: array
-          description: The dimensions for the metric
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-                description: The name of the dimension
-              value:
-                type: string
-                description: The value of the dimension
-    GetMetricStatisticsResponse:
-      type: object
-      description: Response from the GetMetricStatistics action
-      properties:
-        label:
-          type: string
-          description: A label for the specified metric
-        datapoints:
-          type: array
-          description: The data points for the specified metric
-          items:
-            type: object
-            properties:
-              timestamp:
-                type: string
-                format: date-time
-                description: The time stamp for the data point
-              sampleCount:
-                type: number
-                description: The number of metric values
-              average:
-                type: number
-                description: The average of the metric values
-              sum:
-                type: number
-                description: The sum of the metric values
-              minimum:
-                type: number
-                description: The minimum metric value
-              maximum:
-                type: number
-                description: The maximum metric value
-              unit:
-                type: string
-                description: The standard unit for the data point
     GetMetricDataResponse:
       type: object
       description: Response from the GetMetricData action
@@ -415,6 +346,75 @@ components:
         nextToken:
           type: string
           description: Token for the next page of results
+    Metric:
+      type: object
+      description: Represents a specific metric
+      properties:
+        namespace:
+          type: string
+          description: The namespace of the metric
+        metricName:
+          type: string
+          description: The name of the metric
+        dimensions:
+          type: array
+          description: The dimensions for the metric
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: The name of the dimension
+              value:
+                type: string
+                description: The value of the dimension
+    ListMetricsResponse:
+      type: object
+      description: Response from the ListMetrics action
+      properties:
+        metrics:
+          type: array
+          description: The metrics that match the filter criteria
+          items:
+            $ref: '#/components/schemas/Metric'
+        nextToken:
+          type: string
+          description: Token for the next page of results
+    GetMetricStatisticsResponse:
+      type: object
+      description: Response from the GetMetricStatistics action
+      properties:
+        label:
+          type: string
+          description: A label for the specified metric
+        datapoints:
+          type: array
+          description: The data points for the specified metric
+          items:
+            type: object
+            properties:
+              timestamp:
+                type: string
+                format: date-time
+                description: The time stamp for the data point
+              sampleCount:
+                type: number
+                description: The number of metric values
+              average:
+                type: number
+                description: The average of the metric values
+              sum:
+                type: number
+                description: The sum of the metric values
+              minimum:
+                type: number
+                description: The minimum metric value
+              maximum:
+                type: number
+                description: The maximum metric value
+              unit:
+                type: string
+                description: The standard unit for the data point
   securitySchemes:
     sigv4Auth:
       type: apiKey

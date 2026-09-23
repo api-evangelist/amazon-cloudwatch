@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Amazon CloudWatch Alarms Dashboards API
+  title: Amazon CloudWatch Dashboards API
   description: Amazon CloudWatch monitors your Amazon Web Services resources and the applications you run on AWS in real time. You can use CloudWatch to collect and track metrics, create alarms that send notifications, and automatically react to changes in your AWS resources. CloudWatch provides a reliable, scalable, and flexible monitoring solution for your cloud infrastructure.
   version: '2010-08-01'
   contact:
@@ -136,6 +136,18 @@ components:
         dashboardName:
           type: string
           description: The name of the dashboard
+    ListDashboardsResponse:
+      type: object
+      description: Response from the ListDashboards action
+      properties:
+        dashboardEntries:
+          type: array
+          description: The list of matching dashboards
+          items:
+            $ref: '#/components/schemas/Dashboard'
+        nextToken:
+          type: string
+          description: Token for the next page of results
     Dashboard:
       type: object
       description: Represents a CloudWatch dashboard
@@ -153,18 +165,6 @@ components:
         size:
           type: integer
           description: The size of the dashboard in bytes
-    ListDashboardsResponse:
-      type: object
-      description: Response from the ListDashboards action
-      properties:
-        dashboardEntries:
-          type: array
-          description: The list of matching dashboards
-          items:
-            $ref: '#/components/schemas/Dashboard'
-        nextToken:
-          type: string
-          description: Token for the next page of results
   securitySchemes:
     sigv4Auth:
       type: apiKey

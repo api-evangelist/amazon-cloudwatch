@@ -1,20 +1,27 @@
 {
   "provider": "amazon-cloudwatch",
   "sources": [
-    "amazon-cloudwatch-alarms-api-openapi.yml",
-    "amazon-cloudwatch-dashboards-api-openapi.yml",
-    "amazon-cloudwatch-metrics-api-openapi.yml"
+    "_original/amazon-cloudwatch-openapi.yml",
+    "_original/aws-cloudwatch-amazon-cloudwatch-api-api-openapi.yml"
   ],
   "outputs": [
     "amazon-cloudwatch-alarms-api-openapi.yml",
     "amazon-cloudwatch-dashboards-api-openapi.yml",
-    "amazon-cloudwatch-metrics-api-openapi.yml"
+    "amazon-cloudwatch-metrics-api-openapi.yml",
+    "amazon-cloudwatch-amazon-cloudwatch-api-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "amazon-cloudwatch-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "amazon-cloudwatch-alarms-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-cloudwatch-amazon-cloudwatch-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-cloudwatch-dashboards-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-cloudwatch-metrics-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
