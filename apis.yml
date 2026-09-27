@@ -295,5 +295,5 @@ tags:
 - Observability
 - Metrics
 - Logs
-x-parent: aws
+x-parent: amazon-web-services
 x-relationship: product

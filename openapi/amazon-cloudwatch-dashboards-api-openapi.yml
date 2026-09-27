@@ -107,22 +107,23 @@ paths:
           description: Authentication failure
 components:
   schemas:
-    PutDashboardResponse:
+    Dashboard:
       type: object
-      description: Response from the PutDashboard action
+      description: Represents a CloudWatch dashboard
       properties:
-        dashboardValidationMessages:
-          type: array
-          description: Validation messages from the dashboard body
-          items:
-            type: object
-            properties:
-              dataPath:
-                type: string
-                description: The data path related to the message
-              message:
-                type: string
-                description: A message describing the error or warning
+        dashboardName:
+          type: string
+          description: The name of the dashboard
+        dashboardArn:
+          type: string
+          description: The ARN of the dashboard
+        lastModified:
+          type: string
+          format: date-time
+          description: The time stamp of when the dashboard was last modified
+        size:
+          type: integer
+          description: The size of the dashboard in bytes
     GetDashboardResponse:
       type: object
       description: Response from the GetDashboard action
@@ -148,23 +149,22 @@ components:
         nextToken:
           type: string
           description: Token for the next page of results
-    Dashboard:
+    PutDashboardResponse:
       type: object
-      description: Represents a CloudWatch dashboard
+      description: Response from the PutDashboard action
       properties:
-        dashboardName:
-          type: string
-          description: The name of the dashboard
-        dashboardArn:
-          type: string
-          description: The ARN of the dashboard
-        lastModified:
-          type: string
-          format: date-time
-          description: The time stamp of when the dashboard was last modified
-        size:
-          type: integer
-          description: The size of the dashboard in bytes
+        dashboardValidationMessages:
+          type: array
+          description: Validation messages from the dashboard body
+          items:
+            type: object
+            properties:
+              dataPath:
+                type: string
+                description: The data path related to the message
+              message:
+                type: string
+                description: A message describing the error or warning
   securitySchemes:
     sigv4Auth:
       type: apiKey
