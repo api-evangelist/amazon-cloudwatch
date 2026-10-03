@@ -308,18 +308,6 @@ paths:
           description: Authentication failure
 components:
   schemas:
-    ListMetricsResponse:
-      type: object
-      description: Response from the ListMetrics action
-      properties:
-        metrics:
-          type: array
-          description: The metrics that match the filter criteria
-          items:
-            $ref: '#/components/schemas/Metric'
-        nextToken:
-          type: string
-          description: Token for the next page of results
     Metric:
       type: object
       description: Represents a specific metric
@@ -342,41 +330,18 @@ components:
               value:
                 type: string
                 description: The value of the dimension
-    GetMetricStatisticsResponse:
+    ListMetricsResponse:
       type: object
-      description: Response from the GetMetricStatistics action
+      description: Response from the ListMetrics action
       properties:
-        label:
-          type: string
-          description: A label for the specified metric
-        datapoints:
+        metrics:
           type: array
-          description: The data points for the specified metric
+          description: The metrics that match the filter criteria
           items:
-            type: object
-            properties:
-              timestamp:
-                type: string
-                format: date-time
-                description: The time stamp for the data point
-              sampleCount:
-                type: number
-                description: The number of metric values
-              average:
-                type: number
-                description: The average of the metric values
-              sum:
-                type: number
-                description: The sum of the metric values
-              minimum:
-                type: number
-                description: The minimum metric value
-              maximum:
-                type: number
-                description: The maximum metric value
-              unit:
-                type: string
-                description: The standard unit for the data point
+            $ref: '#/components/schemas/Metric'
+        nextToken:
+          type: string
+          description: Token for the next page of results
     GetMetricDataResponse:
       type: object
       description: Response from the GetMetricData action
@@ -415,6 +380,41 @@ components:
         nextToken:
           type: string
           description: Token for the next page of results
+    GetMetricStatisticsResponse:
+      type: object
+      description: Response from the GetMetricStatistics action
+      properties:
+        label:
+          type: string
+          description: A label for the specified metric
+        datapoints:
+          type: array
+          description: The data points for the specified metric
+          items:
+            type: object
+            properties:
+              timestamp:
+                type: string
+                format: date-time
+                description: The time stamp for the data point
+              sampleCount:
+                type: number
+                description: The number of metric values
+              average:
+                type: number
+                description: The average of the metric values
+              sum:
+                type: number
+                description: The sum of the metric values
+              minimum:
+                type: number
+                description: The minimum metric value
+              maximum:
+                type: number
+                description: The maximum metric value
+              unit:
+                type: string
+                description: The standard unit for the data point
   securitySchemes:
     sigv4Auth:
       type: apiKey
