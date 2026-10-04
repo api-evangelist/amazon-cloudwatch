@@ -188,6 +188,9 @@ apis:
   - type: OpenAPI
     url: openapi/amazon-cloudwatch-amazon-cloudwatch-api-api-openapi.yml
 common:
+- type: CapabilityMap
+  url: capabilities/amazon-cloudwatch-capability-edges.yml
+  name: Amazon CloudWatch Business Capability Map
 - type: MCPServer
   url: mcp/amazon-cloudwatch-mcp.yml
 - type: Overlay
