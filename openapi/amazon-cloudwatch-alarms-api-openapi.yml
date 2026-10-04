@@ -232,6 +232,18 @@ paths:
           description: Authentication failure
 components:
   schemas:
+    DescribeAlarmsResponse:
+      type: object
+      description: Response from the DescribeAlarms action
+      properties:
+        metricAlarms:
+          type: array
+          description: The information about the alarms
+          items:
+            $ref: '#/components/schemas/Alarm'
+        nextToken:
+          type: string
+          description: Token for the next page of results
     Alarm:
       type: object
       description: Represents a CloudWatch metric alarm
@@ -311,18 +323,6 @@ components:
           description: The actions to execute when the alarm transitions to INSUFFICIENT_DATA state
           items:
             type: string
-    DescribeAlarmsResponse:
-      type: object
-      description: Response from the DescribeAlarms action
-      properties:
-        metricAlarms:
-          type: array
-          description: The information about the alarms
-          items:
-            $ref: '#/components/schemas/Alarm'
-        nextToken:
-          type: string
-          description: Token for the next page of results
   securitySchemes:
     sigv4Auth:
       type: apiKey
